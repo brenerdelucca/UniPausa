@@ -19,7 +19,7 @@
             height: 100vh;
         }
         #login .container #login-row #login-column #login-box {
-            margin-top: 30%;
+            margin-top: 35%;
             max-width: 600px;
             height: 290px;
             
@@ -35,6 +35,9 @@
             text-decoration: none;
             margin-bottom: 5%;
         }
+        .text-login{
+            color: #004a84;
+        }
     </style>
 </head>
 <body>
@@ -48,19 +51,19 @@
                                 <img src="img/Unipausa.png" alt="" width="100px">
                             </div>
                             <div class="form-group">
-                                <label for="username" class="text-info">Email</label><br>
+                                <label for="username" class="text-login">Email</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">Senha</label><br>
+                                <label for="password" class="text-login">Senha</label><br>
                                 <input type="text" name="password" id="password" class="form-control">
                             </div>
                             <div class="row" style="margin-top: 5%;">
                                 <div class="col-6" >
-                                    <a href="#" id="register-link" class="text-info">Esqueceu a senha?</a>
+                                    <a href="#" id="register-link" class="text-login">Esqueceu a senha?</a>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar">
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar" style="background-color: #004a84; color: #ffffff;">
                                 </div>
                             </div>
                         </form>
