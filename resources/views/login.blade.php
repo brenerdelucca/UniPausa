@@ -21,7 +21,7 @@
         #login .container #login-row #login-column #login-box {
             margin-top: 35%;
             max-width: 600px;
-            height: 290px;
+            height: 305px;
             
             background-color: #ffffff;
             box-shadow: 1px 1px 1px 1px rgb(134, 134, 134, 0.5);
@@ -54,7 +54,7 @@
                                 <label for="username" class="text-login">Email</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="margin-top: 2%;">
                                 <label for="password" class="text-login">Senha</label><br>
                                 <input type="text" name="password" id="password" class="form-control">
                             </div>
