@@ -19,9 +19,9 @@
             height: 100vh;
         }
         #login .container #login-row #login-column #login-box {
-            margin-top: 20%;
+            margin-top: 30%;
             max-width: 600px;
-            height: 270px;
+            height: 290px;
             
             background-color: #ffffff;
             box-shadow: 1px 1px 1px 1px rgb(134, 134, 134, 0.5);
@@ -44,7 +44,9 @@
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="" method="post">
-                            <h3 class="text-center text-info">Login</h3>
+                            <div class="text-center">
+                                <img src="img/Unipausa.png" alt="" width="100px">
+                            </div>
                             <div class="form-group">
                                 <label for="username" class="text-info">Email</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
