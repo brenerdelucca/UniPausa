@@ -27,7 +27,7 @@
         include 'componentes/menu.php';   
     ?>
     <div class="container text-center" style="border: 1px solid black">
-        <h1>esta logado, tela de home</h1>
+        <h1>tela dos turno rsrsrs</h1>
     </div>
     <?php
         include 'componentes/footer.php';   
