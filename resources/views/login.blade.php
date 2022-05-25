@@ -46,13 +46,13 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
+                        <form id="login-form" class="form" action="/home" method="get">
                             <div class="text-center">
                                 <img src="img/Unipausa.png" alt="" width="100px">
                             </div>
                             <div class="form-group">
                                 <label for="username" class="text-login">Email</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <input type="email" name="username" id="username" class="form-control">
                             </div>
                             <div class="form-group" style="margin-top: 2%;">
                                 <label for="password" class="text-login">Senha</label><br>
