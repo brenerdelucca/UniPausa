@@ -11,24 +11,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UniPausa</title>
-    <style>
-        .menu{
-            background-color: #004a84;
-            color: white;
-        }
-        .menu a{
-            color: white;
-            font-size: 13px;
-        }
-    </style>
 </head>
 <body>
+    <!-- Menu -->
     <?php
         include 'componentes/menu.php';   
     ?>
+    
+    <!-- Conteúdo -->
     <div class="container text-center" style="border: 1px solid black">
         <h1>tela dos turno rsrsrs</h1>
     </div>
+    
+    <!-- Rodapé -->
     <?php
         include 'componentes/footer.php';   
     ?>

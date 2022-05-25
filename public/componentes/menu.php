@@ -1,3 +1,4 @@
+<link href="componentes/css/menu.css" rel="stylesheet">
 <nav class="navbar navbar-expand-lg navbar-light menu">
         <div class="container-fluid">
             <div class="row">
