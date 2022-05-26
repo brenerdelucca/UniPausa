@@ -19,8 +19,47 @@
     ?>
     
     <!-- Conteúdo -->
-    <div class="container text-center" style="border: 1px solid black">
-        <h1>tela dos turno rsrsrs</h1>
+    <div class="container">
+        <div class="row">
+            <h3>Turnos</h3>
+        </div>
+        <div class="row">
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>teste</td>
+                    <td>Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="row text-end">
+            <div class="col">
+                <button class="btn btn-success">Cadastrar turno</button>
+            </div>
+        </div>
     </div>
     
     <!-- Rodapé -->
