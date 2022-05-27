@@ -24,3 +24,7 @@ Route::get('/home', function() {
 Route::get('/homeTurno', function() {
     return view('turno/homeTurno');
 });
+
+Route::get('/cadastrarTurno', function() {
+    return view('turno/cadastrarTurno');
+});

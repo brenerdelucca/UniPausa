@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!-- Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link href="componentes/css/menu.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UniPausa</title>
+</head>
+<body>
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light menu">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col"><h5>Cadastro de turnos</h5></div>
+        </div>
+        <div class="col text-end menu">
+          Fulano da Silva Santos
+          <i class="bi bi-person-circle"></i>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Conteúdo -->
+    <div class="container">
+      <form action="" method="">
+        <div class="row mt-5 justify-content-evenly">
+          <div class="col-3">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" name="nomeTurno" required>
+          </div>
+          <div class="col-2">
+            <label class="form-label">Hora de início</label>
+            <input type="time" class="form-control" name="horaInicio" required>
+          </div>
+          <div class="col-2">
+            <label class="form-label">Hora de fim</label>
+            <input type="time" class="form-control" name="horaFim" required>
+          </div>
+        </div>
+        <div class="row mt-5 justify-content-around">
+          <div class="col-3">
+            <label class="form-label">Hora início almoço</label>
+            <input type="time" class="form-control" name="horaInicioAlmoco" required>
+          </div>
+          <div class="col-3">
+            <label class="form-label">Hora fim almoço</label>
+            <input type="time" class="form-control" name="horaFimAlmoco" required>
+          </div>
+        </div>
+        <div class="row mt-5 justify-content-evenly">
+          <div class="col-3">
+            <label class="form-label">Limite hr pausa manha</label>
+            <input type="time" class="form-control" name="limiteHrPausaManha" required>
+          </div>
+          <div class="col-3">
+            <label class="form-label">Limite hr pausa tarde</label>
+            <input type="time" class="form-control" name="limiteHrPausaTarde" required>
+          </div>
+          <div class="col-2 mt-auto">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="ativo" name="ativo" checked>
+              <label class="form-check-label" for="ativo">Ativo</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5 justify-content-evenly">
+          <div class="col-2 text-center">
+            <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancelar</a>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tem certeza?</h5>
+                    <a class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+                  </div>
+                  <div class="modal-body">
+                    Deseja realmente cancelar o cadastro?
+                  </div>
+                  <div class="modal-footer">
+                    <a class="btn btn-secondary" data-bs-dismiss="modal">Não</a>
+                    <a class="btn btn-primary" href="/homeTurno">Sim</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 text-center">
+            <input type="submit" class="btn btn-success" value="Cadastrar">
+          </div>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Rodapé -->
+    <?php
+        include 'componentes/footer.php';   
+    ?>
+</body>
+</html>

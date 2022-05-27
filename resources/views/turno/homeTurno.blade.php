@@ -57,7 +57,7 @@
         </div>
         <div class="row text-end">
             <div class="col">
-                <button class="btn btn-success">Cadastrar turno</button>
+              <a class="btn btn-success" href="/cadastrarTurno">Cadastrar turno</a>
             </div>
         </div>
     </div>
