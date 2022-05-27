@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TurnoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,5 @@ Route::get('/homeTurno', function() {
 Route::get('/cadastrarTurno', function() {
     return view('turno/cadastrarTurno');
 });
+
+Route::post('/inserirTurno', [TurnoController::class, 'inserirTurno']);
