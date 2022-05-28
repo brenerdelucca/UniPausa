@@ -29,43 +29,44 @@
     
     <!-- Conteúdo -->
     <div class="container">
-      <form action="" method="">
+      <form action="/inserirTurno" method="POST">
+        @csrf
         <div class="row mt-5 justify-content-evenly">
           <div class="col-3">
             <label class="form-label">Nome</label>
-            <input type="text" class="form-control" name="nomeTurno" required>
+            <input type="text" class="form-control" name="nome_turno" required>
           </div>
           <div class="col-2">
             <label class="form-label">Hora de início</label>
-            <input type="time" class="form-control" name="horaInicio" required>
+            <input type="time" class="form-control" name="hr_inicio" required>
           </div>
           <div class="col-2">
             <label class="form-label">Hora de fim</label>
-            <input type="time" class="form-control" name="horaFim" required>
+            <input type="time" class="form-control" name="hr_fim" required>
           </div>
         </div>
         <div class="row mt-5 justify-content-around">
           <div class="col-3">
             <label class="form-label">Hora início almoço</label>
-            <input type="time" class="form-control" name="horaInicioAlmoco" required>
+            <input type="time" class="form-control" name="hr_inicio_almoco" required>
           </div>
           <div class="col-3">
             <label class="form-label">Hora fim almoço</label>
-            <input type="time" class="form-control" name="horaFimAlmoco" required>
+            <input type="time" class="form-control" name="hr_fim_almoco" required>
           </div>
         </div>
         <div class="row mt-5 justify-content-evenly">
           <div class="col-3">
             <label class="form-label">Limite hr pausa manha</label>
-            <input type="time" class="form-control" name="limiteHrPausaManha" required>
+            <input type="time" class="form-control" name="limite_hr_pausa_manha" required>
           </div>
           <div class="col-3">
             <label class="form-label">Limite hr pausa tarde</label>
-            <input type="time" class="form-control" name="limiteHrPausaTarde" required>
+            <input type="time" class="form-control" name="limite_hr_pausa_tarde" required>
           </div>
           <div class="col-2 mt-auto">
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="ativo" name="ativo" checked>
+              <input class="form-check-input" type="checkbox" role="switch" id="ativo" name="ativo" value="1" checked>
               <label class="form-check-label" for="ativo">Ativo</label>
             </div>
           </div>

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('hr_fim_almoco');
             $table->time('limite_hr_pausa_manha');
             $table->time('limite_hr_pausa_tarde');
-            $table->boolean('ativo');
+            $table->integer('ativo')->default(0);
             $table->timestamps();
         });
     }
