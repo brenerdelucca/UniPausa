@@ -32,6 +32,12 @@ class TurnoController extends Controller
         return redirect('/homeTurno');
     }
 
+    public function consultarTurno($id)
+    {
+        $turno = Turno::find($id);
+        return view('/turno/consultarTurno', ['turno' => $turno]);
+    }
+
     public function deletarTurno($id)
     {
         $turno = Turno::find($id);

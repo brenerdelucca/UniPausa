@@ -57,7 +57,7 @@
                       @endif
                       <td>
                         <a href="/alterarTurno/{{$turno -> id}}"><i class="bi bi-pencil-fill link-dark"></i></a>
-                        <a href=""><i class="bi bi-search link-dark"></i></a>
+                        <a href="/consultarTurno/{{$turno -> id}}"><i class="bi bi-search link-dark"></i></a>
                         <a href="/deletarTurno/{{$turno -> id}}"><i class="bi bi-trash-fill link-dark"></i></a>
                       </td>
                     </tr>
