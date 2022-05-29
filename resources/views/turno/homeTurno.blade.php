@@ -58,7 +58,24 @@
                       <td>
                         <a href=""><i class="bi bi-pencil-fill link-dark"></i></a>
                         <a href=""><i class="bi bi-search link-dark"></i></a>
-                        <a href="/deletarTurno/{{$turno -> id_turno}}"><i class="bi bi-trash-fill link-dark"></i></a>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash-fill link-dark"></i></a>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Tem certeza?</h5>
+                                <a class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+                              </div>
+                              <div class="modal-body">
+                                Deseja realmente excluir o turno
+                              </div>
+                              <div class="modal-footer">
+                                <a class="btn btn-secondary" data-bs-dismiss="modal">Não</a>
+                                <a href="/deletarTurno/{{$turno -> id_turno}}" class="btn btn-primary">Sim</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                   @endforeach
