@@ -19,39 +19,49 @@
     ?>
     
     <!-- Conteúdo -->
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <h3>Turnos</h3>
         </div>
-        <div class="row">
+        <div class="row" style="max-height: 70vh; overflow-y: auto;">
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Hora de início</th>
+                    <th scope="col">Hora de fim</th>
+                    <th scope="col">Hora início almoço</th>
+                    <th scope="col">Hora fim almoço</th>
+                    <th scope="col">Limite hr pausa manhã</th>
+                    <th scope="col">Limite hr pausa tarde</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Ações</th>
                   </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>teste</td>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                  @foreach ($turnos as $turno)
+                    <tr>
+                      <td>{{$turno -> id_turno}}</td>
+                      <td>{{$turno -> nome_turno}}</td>
+                      <td>{{$turno -> hr_inicio}}</td>
+                      <td>{{$turno -> hr_fim}}</td>
+                      <td>{{$turno -> hr_inicio_almoco}}</td>
+                      <td>{{$turno -> hr_fim_almoco}}</td>
+                      <td>{{$turno -> limite_hr_pausa_manha}}</td>
+                      <td>{{$turno -> limite_hr_pausa_tarde}}</td>
+                      @if ($turno -> ativo == 1)
+                        <td>Ativo</td>
+                      @else
+                        <td>Inativo</td>
+                      @endif
+                      <td>
+                        <a href=""><i class="bi bi-pencil-fill link-dark"></i></a>
+                        <a href=""><i class="bi bi-search link-dark"></i></a>
+                        <a href="/deletarTurno/{{$turno -> id_turno}}"><i class="bi bi-trash-fill link-dark"></i></a>
+                      </td>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
         </div>

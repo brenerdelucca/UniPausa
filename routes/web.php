@@ -22,12 +22,12 @@ Route::get('/home', function() {
     return view('home');
 });
 
-Route::get('/homeTurno', function() {
-    return view('turno/homeTurno');
-});
+Route::get('/homeTurno', [TurnoController::class, 'telaTurnos']);
 
 Route::get('/cadastrarTurno', function() {
     return view('turno/cadastrarTurno');
 });
 
 Route::post('/inserirTurno', [TurnoController::class, 'inserirTurno']);
+
+Route::get('/deletarTurno/{id}', [TurnoController::class, 'deletarTurno']);
