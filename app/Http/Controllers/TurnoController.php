@@ -16,14 +16,19 @@ class TurnoController extends Controller
     public function telaTurnos()
     {
         $turnos = Turno::all();
-        return view('/turno/homeTurno',['turnos' => $turnos]);
+        return view('/turno/homeTurno', ['turnos' => $turnos]);
+    }
+
+    public function acharTurno($id)
+    {
+        $turno = Turno::find($id);
+        return view('/turno/alterarTurno', ['turno', $turno]);
     }
 
     public function deletarTurno($id)
     {
-        Turno::where('id_turno', $id)->delete();
-        #$turno = Turno::find($id);
-        #$turno->delete();
+        $turno = Turno::find($id);
+        $turno->delete();
         return redirect('/homeTurno');
     }
 }

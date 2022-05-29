@@ -42,7 +42,7 @@
                 <tbody class="table-group-divider">
                   @foreach ($turnos as $turno)
                     <tr>
-                      <td>{{$turno -> id_turno}}</td>
+                      <td>{{$turno -> id}}</td>
                       <td>{{$turno -> nome_turno}}</td>
                       <td>{{$turno -> hr_inicio}}</td>
                       <td>{{$turno -> hr_fim}}</td>
@@ -56,7 +56,7 @@
                         <td>Inativo</td>
                       @endif
                       <td>
-                        <a href=""><i class="bi bi-pencil-fill link-dark"></i></a>
+                        <a href="/alterarTurno/{{$turno -> id_turno}}"><i class="bi bi-pencil-fill link-dark"></i></a>
                         <a href=""><i class="bi bi-search link-dark"></i></a>
                         <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash-fill link-dark"></i></a>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

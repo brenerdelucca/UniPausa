@@ -30,4 +30,6 @@ Route::get('/cadastrarTurno', function() {
 
 Route::post('/inserirTurno', [TurnoController::class, 'inserirTurno']);
 
+Route::get('/alterarTurno/{id}', [TurnoController::class, 'acharTurno']);
+
 Route::get('/deletarTurno/{id}', [TurnoController::class, 'deletarTurno']);
