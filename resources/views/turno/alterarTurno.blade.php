@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <!-- Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
-    <link href="componentes/css/menu.css" rel="stylesheet">
+    <link href="/componentes/css/menu.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -29,7 +29,7 @@
     
     <!-- Conteúdo -->
     <div class="container">
-      <form action="/inserirTurno" method="POST">
+      <form action="/alterarTurno/{{$turno->id}}" method="POST">
         @csrf
         <div class="row mt-5 justify-content-evenly">
           <div class="col-3">

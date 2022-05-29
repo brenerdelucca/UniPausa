@@ -1,4 +1,4 @@
-<link href="componentes/css/menu.css" rel="stylesheet">
+<link href="/componentes/css/menu.css" rel="stylesheet" type="text/css">
 <nav class="navbar navbar-expand-lg navbar-light menu">
         <div class="container-fluid">
             <div class="row">

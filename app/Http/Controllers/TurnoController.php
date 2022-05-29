@@ -22,7 +22,14 @@ class TurnoController extends Controller
     public function acharTurno($id)
     {
         $turno = Turno::find($id);
-        return view('/turno/alterarTurno', ['turno', $turno]);
+        return view('/turno/alterarTurno', ['turno' => $turno]);
+    }
+
+    public function alterarTurno(Request $request, $id)
+    {
+        $turno = Turno::find($id);
+        $turno->update($request->all());
+        return redirect('/homeTurno');
     }
 
     public function deletarTurno($id)
