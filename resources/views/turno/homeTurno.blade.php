@@ -23,7 +23,7 @@
         <div class="row">
             <h3>Turnos</h3>
         </div>
-        <div class="row" style="max-height: 70vh; overflow-y: auto;">
+        <div class="row overflow-auto" style="max-height: 65vh;">
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                   <tr>
@@ -65,7 +65,7 @@
                 </tbody>
               </table>
         </div>
-        <div class="row text-end">
+        <div class="row text-end mt-3">
             <div class="col">
               <a class="btn btn-success" href="/cadastrarTurno">Cadastrar turno</a>
             </div>
