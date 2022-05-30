@@ -45,7 +45,7 @@
         </div>
         <div class="d-flex flex-row-reverse">
             <div class="d-flex flex-column">
-                <a class="btn btn-success" href="">Cadastrar atendente</a>
+                <a class="btn btn-success" href="/cadastrarAtendente">Cadastrar atendente</a>
             </div>
         </div>
     </div>

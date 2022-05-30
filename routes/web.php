@@ -28,6 +28,9 @@ Route::get('/homeAtendente', function() {
     return view('/atendente/homeAtendente');
 });
 
+Route::get('/cadastrarAtendente', function() {
+    return view('/atendente/cadastrarAtendente');
+});
 
 #Rotas dos turnos
 
