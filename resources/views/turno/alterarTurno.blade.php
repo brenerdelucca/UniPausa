@@ -65,14 +65,18 @@
             <input type="time" class="form-control" name="limite_hr_pausa_tarde" value="{{$turno->limite_hr_pausa_tarde}}" required>
           </div>
           <div class="col-2 mt-auto">
-            <div class="form-check form-switch">
-              @if ($turno->ativo == 1)
-              <input class="form-check-input" type="checkbox" role="switch" id="ativo" name="ativo" value="1" checked>
-              @else
-              <input class="form-check-input" type="checkbox" role="switch" id="ativo" name="ativo" value="0">
-              @endif
-              <label class="form-check-label" for="ativo">Ativo</label>
-            </div>
+            <label class="form-label">Ativo?</label>
+            @if ($turno->ativo == 1)
+              <select class="form-select" name="ativo">
+                <option value="1" selected>Sim</option>
+                <option value="0">Não</option>
+              </select>
+            @else
+              <select class="form-select" name="ativo">
+                <option value="1">Sim</option>
+                <option value="0" selected>Não</option>
+              </select>
+            @endif
           </div>
         </div>
         <div class="row mt-5 justify-content-evenly">

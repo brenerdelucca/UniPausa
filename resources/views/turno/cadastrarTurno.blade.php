@@ -65,10 +65,11 @@
             <input type="time" class="form-control" name="limite_hr_pausa_tarde" required>
           </div>
           <div class="col-2 mt-auto">
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="ativo" name="ativo" value="1" checked>
-              <label class="form-check-label" for="ativo">Ativo</label>
-            </div>
+            <label class="form-label">Ativo?</label>
+            <select class="form-select" name="ativo">
+              <option value="1" selected>Sim</option>
+              <option value="0">Não</option>
+            </select>
           </div>
         </div>
         <div class="row mt-5 justify-content-evenly">
