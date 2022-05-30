@@ -20,10 +20,10 @@
     
     <!-- Conteúdo -->
     <div class="container-fluid">
-        <div class="row">
+        <div class="d-flex flex-row">
             <h3>Turnos</h3>
         </div>
-        <div class="row overflow-auto" style="max-height: 65vh;">
+        <div class="d-flex flex-row overflow-auto" style="max-height: 65vh;">
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                   <tr>
@@ -36,7 +36,7 @@
                     <th scope="col">Limite hr pausa manhã</th>
                     <th scope="col">Limite hr pausa tarde</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Ações</th>
+                    <th scope="col" class="text-center">Ações</th>
                   </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -55,7 +55,7 @@
                       @else
                         <td>Inativo</td>
                       @endif
-                      <td>
+                      <td class="text-center">
                         <a href="/alterarTurno/{{$turno -> id}}"><i class="bi bi-pencil-fill link-dark"></i></a>
                         <a href="/consultarTurno/{{$turno -> id}}"><i class="bi bi-search link-dark"></i></a>
                         <a href="/deletarTurno/{{$turno -> id}}"><i class="bi bi-trash-fill link-dark"></i></a>
@@ -65,8 +65,8 @@
                 </tbody>
               </table>
         </div>
-        <div class="row text-end mt-3">
-            <div class="col">
+        <div class="d-flex flex-row-reverse">
+            <div class="d-flex flex-column">
               <a class="btn btn-success" href="/cadastrarTurno">Cadastrar turno</a>
             </div>
         </div>

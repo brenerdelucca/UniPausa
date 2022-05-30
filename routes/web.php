@@ -22,10 +22,19 @@ Route::get('/home', function() {
     return view('home');
 });
 
+#Rotas dos atendentes
+
+Route::get('/homeAtendente', function() {
+    return view('/atendente/homeAtendente');
+});
+
+
+#Rotas dos turnos
+
 Route::get('/homeTurno', [TurnoController::class, 'telaTurnos']);
 
 Route::get('/cadastrarTurno', function() {
-    return view('turno/cadastrarTurno');
+    return view('/turno/cadastrarTurno');
 });
 
 Route::post('/inserirTurno', [TurnoController::class, 'inserirTurno']);
