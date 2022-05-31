@@ -31,17 +31,75 @@
     <div class="container">
         <form action="">
             @csrf
-            <div class="d-flex flex-row justify-content-evenly">
+            <div class="d-flex flex-row justify-content-evenly mt-5">
                 <div class="d-flex flex-column">
-                    
+                    <label class="form-label">Nome</label>
+                    <input type="text" class="form-control">
                 </div>
                 <div class="d-flex flex-column">
-                    
+                    <label class="form-label">Sobrenome</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="d-flex flex-column">
+                  <label class="form-label">E-mail</label>
+                  <input type="email" class="form-control">
                 </div>
             </div>
-            <div class="d-flex flex-row">
+            <div class="d-flex flex-row justify-content-evenly mt-5">
+                <div class="d-flex flex-column col-1">
+                    <label class="form-label">DDD</label>
+                    <input type="number" class="form-control" placeholder="043">
+                </div>
                 <div class="d-flex flex-column">
-                    
+                    <label class="form-label">Celular</label>
+                    <input type="number" class="form-control" placeholder="912345678">
+                </div>
+                <div class="flex flex-column">
+                    <label class="form-label">Turno</label>
+                    <select name="" id="" class="form-select">
+                      <option value="">Turno 1</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-evenly mt-5">
+                <div class="d-flex flex-column">
+                    <label class="form-label">É supervisor?</label>
+                    <select name="" id="" class="form-select">
+                        <option value="1">Sim</option>
+                        <option value="0">Não</option>
+                    </select>
+                </div>
+                <div class="d-flex flex-column">
+                  <label class="form-label">Ativo?</label>
+                  <select name="" id="" class="form-select">
+                      <option value="1">Sim</option>
+                      <option value="0">Não</option>
+                  </select>
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-evenly mt-5">
+                <div class="d-flex flex-column">
+                    <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancelar</a>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Tem certeza?</h5>
+                            <a class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+                          </div>
+                          <div class="modal-body">
+                            Deseja realmente cancelar o cadastro?
+                          </div>
+                          <div class="modal-footer">
+                            <a class="btn btn-secondary" data-bs-dismiss="modal">Não</a>
+                            <a class="btn btn-primary" href="/homeAtendente">Sim</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <input type="submit" class="btn btn-success" value="Cadastrar">
                 </div>
             </div>
         </form>

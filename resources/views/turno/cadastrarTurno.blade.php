@@ -93,7 +93,7 @@
               </div>
             </div>
           </div>
-          <div class="col-2 text-center">
+          <div class="col-2">
             <input type="submit" class="btn btn-success" value="Cadastrar">
           </div>
         </div>
