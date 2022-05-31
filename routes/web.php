@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TurnoController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Turno;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::get('/homeAtendente', function() {
 });
 
 Route::get('/cadastrarAtendente', function() {
+    $turnos = Turno::all();
     return view('/atendente/cadastrarAtendente');
 });
 

@@ -21,12 +21,10 @@ return new class extends Migration
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('is_supervisor');
-            $table->int('ddd');
-            $table->int('numero_celular');
+            $table->integer('ddd')->nullable();
+            $table->integer('numero_celular')->nullable();
             $table->boolean('ativo');
             $table->boolean('esta_em_pausa')->default(0);
-            $table->unsignedBigInteger('turno_id');
-            $table->foreign('turno_id')->references('id')->on('turnos');
             $table->rememberToken();
             $table->timestamps();
         });

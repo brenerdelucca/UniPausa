@@ -25,6 +25,11 @@ return new class extends Migration
             $table->boolean('ativo');
             $table->timestamps();
         });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('turno_id');
+            $table->foreign('turno_id')->references('id')->on('turnos');
+        });
     }
 
     /**
