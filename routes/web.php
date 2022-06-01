@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\AtendenteController;
 use App\Http\Controllers\TurnoController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Turno;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +29,9 @@ Route::get('/homeAtendente', function() {
     return view('/atendente/homeAtendente');
 });
 
-Route::get('/cadastrarAtendente', function() {
-    $turnos = Turno::all();
-    return view('/atendente/cadastrarAtendente');
-});
+Route::get('/cadastrarAtendente', [AtendenteController::class, 'encontrarTurnoCadastroAtendente']);
+
+Route::post('/inserirAtendente', [AtendenteController::class, 'inserirAtendente']);
 
 #Rotas dos turnos
 

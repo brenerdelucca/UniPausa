@@ -28,50 +28,60 @@
     </nav>
 
     <!-- Conteúdo -->
-    <div class="container">
-        <form action="">
+    <div class="container mt-3">
+        <form action="/inserirAtendente" method="POST">
             @csrf
-            <div class="d-flex flex-row justify-content-evenly mt-5">
+            <div class="d-flex flex-row justify-content-evenly">
                 <div class="d-flex flex-column">
                     <label class="form-label">Nome</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="nome_atendente">
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="sobrenome_atendente">
                 </div>
-                <div class="d-flex flex-column">
-                  <label class="form-label">E-mail</label>
-                  <input type="email" class="form-control">
-                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-evenly mt-5">
+              <div class="d-flex flex-column">
+                <label class="form-label">E-mail</label>
+                <input type="email" class="form-control" name="email">
+              </div>
+              <div class="d-flex flex-column">
+                <label class="form-label">Senha</label>
+                <input type="password" name="password" class="form-control">
+              </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
                 <div class="d-flex flex-column col-1">
                     <label class="form-label">DDD</label>
-                    <input type="number" class="form-control" placeholder="043">
+                    <input type="number" class="form-control" placeholder="043" name="ddd">
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Celular</label>
-                    <input type="number" class="form-control" placeholder="912345678">
-                </div>
-                <div class="flex flex-column">
-                    <label class="form-label">Turno</label>
-                    <select name="" id="" class="form-select">
-                      <option value="">Turno 1</option>
-                    </select>
+                    <input type="number" class="form-control" placeholder="912345678" name="numero_celular">
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
+                <div class="flex flex-column">
+                  <label class="form-label">Turno</label>
+                  <select name="turno_id" class="form-select">
+                    @foreach ($turnos as $turno)
+                      @if ($turno->ativo == 1)
+                        <option value="{{$turno->id}}">{{$turno->nome_turno}}</option>
+                      @endif
+                    @endforeach
+                  </select>
+                </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">É supervisor?</label>
-                    <select name="" id="" class="form-select">
+                    <select name="is_supervisor" class="form-select">
                         <option value="1">Sim</option>
                         <option value="0">Não</option>
                     </select>
                 </div>
                 <div class="d-flex flex-column">
                   <label class="form-label">Ativo?</label>
-                  <select name="" id="" class="form-select">
+                  <select name="ativo" class="form-select">
                       <option value="1">Sim</option>
                       <option value="0">Não</option>
                   </select>
