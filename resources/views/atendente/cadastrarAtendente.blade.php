@@ -34,21 +34,21 @@
             <div class="d-flex flex-row justify-content-evenly">
                 <div class="d-flex flex-column">
                     <label class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome_atendente">
+                    <input type="text" class="form-control" name="nome_atendente" required>
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control" name="sobrenome_atendente">
+                    <input type="text" class="form-control" name="sobrenome_atendente" required>
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
               <div class="d-flex flex-column">
                 <label class="form-label">E-mail</label>
-                <input type="email" class="form-control" name="email">
+                <input type="email" class="form-control" name="email" required>
               </div>
               <div class="d-flex flex-column">
                 <label class="form-label">Senha</label>
-                <input type="password" name="password" class="form-control">
+                <input type="password" name="password" class="form-control" required>
               </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
@@ -64,7 +64,7 @@
             <div class="d-flex flex-row justify-content-evenly mt-5">
                 <div class="flex flex-column">
                   <label class="form-label">Turno</label>
-                  <select name="turno_id" class="form-select">
+                  <select name="turno_id" class="form-select" required>
                     @foreach ($turnos as $turno)
                       @if ($turno->ativo == 1)
                         <option value="{{$turno->id}}">{{$turno->nome_turno}}</option>
@@ -74,14 +74,14 @@
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">É supervisor?</label>
-                    <select name="is_supervisor" class="form-select">
+                    <select name="is_supervisor" class="form-select" required>
                         <option value="1">Sim</option>
                         <option value="0">Não</option>
                     </select>
                 </div>
                 <div class="d-flex flex-column">
                   <label class="form-label">Ativo?</label>
-                  <select name="ativo" class="form-select">
+                  <select name="ativo" class="form-select" required>
                       <option value="1">Sim</option>
                       <option value="0">Não</option>
                   </select>

@@ -23,6 +23,7 @@ class AtendenteController extends Controller
 
     public function telaAtendentes()
     {
-        return view('/atendente/homeAtendente');
+        $atendentes = User::all();
+        return view('/atendente/homeAtendente', ['atendentes' => $atendentes]);
     }
 }

@@ -26,20 +26,32 @@
         <div class="d-flex flex-row">
             <table class="table table-striped table-hover table-bordered">
                 <thead>
-                    <tr>
-                        <th scope="rol">ID</th>
-                        <th scope="rol">Nome</th>
-                        <th scope="rol">teste1</th>
-                        <th scope="rol">teste2</th>
-                    </tr>
+                        <tr>
+                            <th scope="rol">Nome completo</th>
+                            <th scope="rol">E-mail</th>
+                            <th scope="rol">Usuário</th>
+                            <th scope="rol">Turno</th>
+                            <th scope="rol">Status</th>
+                        </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr>
-                        <td>1</td>
-                        <td>Jose</td>
-                        <td>rs</td>
-                        <td>ks</td>
-                    </tr>
+                    @foreach ($atendentes as $atendente)
+                        <tr>
+                            <td>{{$atendente->nome_atendente}} {{$atendente->sobrenome_atendente}}</td>
+                            <td>{{$atendente->email}}</td>
+                            @if ($atendente->is_supervisor == 1)
+                                <td>Supervisor</td>
+                            @else
+                                <td>Atendente</td>
+                            @endif
+                            <td>{{$atendente->turno_id}}</td>
+                            @if ($atendente->ativo == 1)
+                                <td>Ativo</td>
+                            @else
+                                <td>Inativo</td>
+                            @endif
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -25,9 +25,7 @@ Route::get('/home', function() {
 
 #Rotas dos atendentes
 
-Route::get('/homeAtendente', function() {
-    return view('/atendente/homeAtendente');
-});
+Route::get('/homeAtendente', [AtendenteController::class, 'telaAtendentes']);
 
 Route::get('/cadastrarAtendente', [AtendenteController::class, 'encontrarTurnoCadastroAtendente']);
 
