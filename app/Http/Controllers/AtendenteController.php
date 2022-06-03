@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Turno;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AtendenteController extends Controller
 {
@@ -23,7 +24,10 @@ class AtendenteController extends Controller
 
     public function telaAtendentes()
     {
-        $atendentes = User::all();
+        $atendentes = DB::table('users')
+        ->join('turnos', 'users.turno_id', "=", 'turnos.id')
+        ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ativo', 'turnos.nome_turno')
+        ->get();
         return view('/atendente/homeAtendente', ['atendentes' => $atendentes]);
     }
 }

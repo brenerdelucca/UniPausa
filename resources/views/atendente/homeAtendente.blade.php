@@ -27,16 +27,19 @@
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                         <tr>
+                            <th scope="rol">ID</th>
                             <th scope="rol">Nome completo</th>
                             <th scope="rol">E-mail</th>
                             <th scope="rol">Usuário</th>
                             <th scope="rol">Turno</th>
                             <th scope="rol">Status</th>
+                            <th scope="rol" class="text-center">Ações</th>
                         </tr>
                 </thead>
                 <tbody class="table-group-divider">
                     @foreach ($atendentes as $atendente)
                         <tr>
+                            <td>{{$atendente->id}}</td>
                             <td>{{$atendente->nome_atendente}} {{$atendente->sobrenome_atendente}}</td>
                             <td>{{$atendente->email}}</td>
                             @if ($atendente->is_supervisor == 1)
@@ -44,12 +47,17 @@
                             @else
                                 <td>Atendente</td>
                             @endif
-                            <td>{{$atendente->turno_id}}</td>
+                            <td>{{$atendente->nome_turno}}</td>
                             @if ($atendente->ativo == 1)
                                 <td>Ativo</td>
                             @else
                                 <td>Inativo</td>
                             @endif
+                            <td class="text-center">
+                                <a href=""><i class="bi bi-pencil-fill link-dark"></i></a>
+                                <a href=""><i class="bi bi-search link-dark"></i></a>
+                                <a href=""><i class="bi bi-trash-fill link-dark"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
