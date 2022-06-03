@@ -26,7 +26,9 @@
           </div>
         </div>
     </nav>
-
+    @php
+      $atendente = $atendente[0];
+    @endphp
     <!-- Conteúdo -->
     <div class="container mt-3">
         <form action="/alterarAtendente/{{$atendente->id}}" method="POST">
@@ -48,18 +50,32 @@
               </div>
               <div class="d-flex flex-column">
                 <label class="form-label">Senha</label>
-                <input type="password" name="password" class="form-control" required>
+                <input type="password" name="password" class="form-control">
               </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
+              @if (isset($atendente->ddd))
                 <div class="d-flex flex-column col-1">
-                    <label class="form-label">DDD</label>
-                    <input type="number" class="form-control" placeholder="043" name="ddd" value="{{$atendente->ddd}}">
+                  <label class="form-label">DDD</label>
+                  <input type="number" class="form-control" placeholder="043" name="ddd" value="{{$atendente->ddd}}">
                 </div>
+              @else
+                <div class="d-flex flex-column col-1">
+                  <label class="form-label">DDD</label>
+                  <input type="number" class="form-control" placeholder="043" name="ddd">
+                </div>
+              @endif
+              @if (isset($atendente->numero_celular))
                 <div class="d-flex flex-column">
-                    <label class="form-label">Celular</label>
-                    <input type="number" class="form-control" placeholder="912345678" name="numero_celular" value="{{$atendente->numero_celular}}">
+                  <label class="form-label">Celular</label>
+                  <input type="number" class="form-control" placeholder="912345678" name="numero_celular" value="{{$atendente->numero_celular}}">
                 </div>
+              @else
+                <div class="d-flex flex-column">
+                  <label class="form-label">Celular</label>
+                  <input type="number" class="form-control" placeholder="912345678" name="numero_celular">
+                </div>
+              @endif
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
                 <div class="flex flex-column">

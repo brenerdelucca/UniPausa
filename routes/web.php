@@ -33,6 +33,8 @@ Route::post('/inserirAtendente', [AtendenteController::class, 'inserirAtendente'
 
 Route::get('/alterarAtendente/{id}', [AtendenteController::class, 'acharAtendente']);
 
+Route::post('/alterarAtendente/{id}', [AtendenteController::class, 'alterarAtendente']);
+
 #Rotas dos turnos
 
 Route::get('/homeTurno', [TurnoController::class, 'telaTurnos']);
