@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class AtendenteController extends Controller
 {
-    public function encontrarTurnoCadastroAtendente()
+    public function cadastrarAtendente()
     {
         $turnos = Turno::all();
         return view('/atendente/cadastrarAtendente', ['turnos' => $turnos]);
@@ -29,5 +29,17 @@ class AtendenteController extends Controller
         ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ativo', 'turnos.nome_turno')
         ->get();
         return view('/atendente/homeAtendente', ['atendentes' => $atendentes]);
+    }
+
+    public function acharAtendente($id)
+    {
+        #$atendente = User::find($id);
+        $atendente = DB::table('users')
+        ->join('turnos', 'users.turno_id', "=", 'turnos.id')
+        ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ativo', 'users.turno_id', 'turnos.nome_turno')
+        ->where('users.id', $id)
+        ->get();
+        $turnos = Turno::all();
+        return view('/atendente/alterarAtendente', ['atendente' => $atendente], ['turnos' => $turnos]);
     }
 }

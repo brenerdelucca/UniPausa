@@ -27,9 +27,11 @@ Route::get('/home', function() {
 
 Route::get('/homeAtendente', [AtendenteController::class, 'telaAtendentes']);
 
-Route::get('/cadastrarAtendente', [AtendenteController::class, 'encontrarTurnoCadastroAtendente']);
+Route::get('/cadastrarAtendente', [AtendenteController::class, 'cadastrarAtendente']);
 
 Route::post('/inserirAtendente', [AtendenteController::class, 'inserirAtendente']);
+
+Route::get('/alterarAtendente/{id}', [AtendenteController::class, 'acharAtendente']);
 
 #Rotas dos turnos
 
