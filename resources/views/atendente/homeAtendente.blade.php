@@ -23,7 +23,7 @@
         <div class="d-flex flex-row">
             <h3>Atendentes</h3>
         </div>
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-row overflow-auto" style="max-height: 65vh;">
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                         <tr>

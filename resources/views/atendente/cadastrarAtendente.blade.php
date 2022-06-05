@@ -52,13 +52,13 @@
               </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
-                <div class="d-flex flex-column col-1">
+                <div class="d-flex flex-column">
                     <label class="form-label">DDD</label>
-                    <input type="number" class="form-control" placeholder="043" name="ddd">
+                    <input type="text" class="form-control" placeholder="043" name="ddd" pattern="[0-9]{3}">
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Celular</label>
-                    <input type="number" class="form-control" placeholder="912345678" name="numero_celular">
+                    <input type="text" class="form-control" placeholder="912345678" name="numero_celular" pattern="[0-9]{9}">
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">

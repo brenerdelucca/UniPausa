@@ -27,6 +27,7 @@ class AtendenteController extends Controller
         $atendentes = DB::table('users')
         ->join('turnos', 'users.turno_id', "=", 'turnos.id')
         ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ativo', 'turnos.nome_turno')
+        ->orderBy('id')
         ->get();
         return view('/atendente/homeAtendente', ['atendentes' => $atendentes]);
     }
