@@ -38,6 +38,7 @@ class AtendenteController extends Controller
         ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ativo', 'users.turno_id', 'turnos.nome_turno')
         ->where('users.id', $id)
         ->get();
+        $atendente = $atendente[0];
         $turnos = Turno::all();
         return view('/atendente/alterarAtendente', ['atendente' => $atendente, 'turnos' => $turnos]);
     }
@@ -64,5 +65,17 @@ class AtendenteController extends Controller
         }
                
         return redirect('/homeAtendente');
+    }
+
+    public function consultarAtendente($id)
+    {
+        $atendente = DB::table('users')
+        ->join('turnos', 'users.turno_id', "=", 'turnos.id')
+        ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ativo', 'users.turno_id', 'turnos.nome_turno')
+        ->where('users.id', $id)
+        ->get();
+        $atendente = $atendente[0];
+        $turnos = Turno::all();
+        return view('/atendente/consultarAtendente', ['atendente' => $atendente, 'turnos' => $turnos]);
     }
 }

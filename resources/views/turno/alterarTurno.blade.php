@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-light menu">
       <div class="container-fluid">
         <div class="row">
-          <div class="col"><h5>Cadastro de turnos</h5></div>
+          <div class="col"><h5>Alteração de turno</h5></div>
         </div>
         <div class="col text-end menu">
           Fulano da Silva Santos

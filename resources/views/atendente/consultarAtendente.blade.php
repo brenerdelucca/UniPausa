@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-light menu">
         <div class="container-fluid">
           <div class="row">
-            <div class="col"><h5>Alteração de atendente</h5></div>
+            <div class="col"><h5>Consulta de atendente</h5></div>
           </div>
           <div class="col text-end menu">
             Fulano da Silva Santos
@@ -29,56 +29,54 @@
     
     <!-- Conteúdo -->
     <div class="container mt-3">
-        <form action="/alterarAtendente/{{$atendente->id}}" method="POST">
-            @csrf
             <div class="d-flex flex-row justify-content-evenly">
                 <div class="d-flex flex-column">
                     <label class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome_atendente" value="{{$atendente->nome_atendente}}" required>
+                    <input type="text" class="form-control" name="nome_atendente" value="{{$atendente->nome_atendente}}" disabled>
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control" name="sobrenome_atendente" value="{{$atendente->sobrenome_atendente}}" required>
+                    <input type="text" class="form-control" name="sobrenome_atendente" value="{{$atendente->sobrenome_atendente}}" disabled>
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
               <div class="d-flex flex-column">
                 <label class="form-label">E-mail</label>
-                <input type="email" class="form-control" name="email" value="{{$atendente->email}}" required>
+                <input type="email" class="form-control" name="email" value="{{$atendente->email}}" disabled>
               </div>
               <div class="d-flex flex-column">
                 <label class="form-label">Senha</label>
-                <input type="password" name="password" class="form-control">
+                <input type="password" name="password" class="form-control" disabled>
               </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
               @if (isset($atendente->ddd))
                 <div class="d-flex flex-column col-1">
                   <label class="form-label">DDD</label>
-                  <input type="number" class="form-control" placeholder="043" name="ddd" value="{{$atendente->ddd}}">
+                  <input type="number" class="form-control" name="ddd" value="{{$atendente->ddd}}" disabled>
                 </div>
               @else
                 <div class="d-flex flex-column col-1">
                   <label class="form-label">DDD</label>
-                  <input type="number" class="form-control" placeholder="043" name="ddd">
+                  <input type="number" class="form-control" name="ddd"disabled>
                 </div>
               @endif
               @if (isset($atendente->numero_celular))
                 <div class="d-flex flex-column">
                   <label class="form-label">Celular</label>
-                  <input type="number" class="form-control" placeholder="912345678" name="numero_celular" value="{{$atendente->numero_celular}}">
+                  <input type="number" class="form-control" name="numero_celular" value="{{$atendente->numero_celular}}" disabled>
                 </div>
               @else
                 <div class="d-flex flex-column">
                   <label class="form-label">Celular</label>
-                  <input type="number" class="form-control" placeholder="912345678" name="numero_celular">
+                  <input type="number" class="form-control" name="numero_celular" disabled>
                 </div>
               @endif
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
                 <div class="flex flex-column">
                   <label class="form-label">Turno</label>
-                  <select name="turno_id" class="form-select" required>
+                  <select name="turno_id" class="form-select" disabled>
                     @foreach ($turnos as $turno)
                       @if ($atendente->turno_id == $turno->id)
                         <option value="{{$turno->id}}" selected>{{$turno->nome_turno}}</option>
@@ -90,7 +88,7 @@
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">É supervisor?</label>
-                    <select name="is_supervisor" class="form-select" required>
+                    <select name="is_supervisor" class="form-select" disabled>
                       @if ($atendente->is_supervisor == 1)
                         <option value="1" selected>Sim</option>
                         <option value="0">Não</option>
@@ -102,7 +100,7 @@
                 </div>
                 <div class="d-flex flex-column">
                   <label class="form-label">Ativo?</label>
-                  <select name="ativo" class="form-select" required>
+                  <select name="ativo" class="form-select" disabled>
                     @if ($atendente->ativo == 1)
                       <option value="1" selected>Sim</option>
                       <option value="0">Não</option>
@@ -114,34 +112,13 @@
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
-                <div class="d-flex flex-column">
-                    <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancelar</a>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Tem certeza?</h5>
-                            <a class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
-                          </div>
-                          <div class="modal-body">
-                            Deseja realmente cancelar a alteração?
-                          </div>
-                          <div class="modal-footer">
-                            <a class="btn btn-secondary" data-bs-dismiss="modal">Não</a>
-                            <a class="btn btn-primary" href="/homeAtendente">Sim</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                <div class="d-flex flex-column">
-                    <input type="submit" class="btn btn-success" value="Cadastrar">
+                <div class="d-flex flex-column text-center">
+                    <a class="btn btn-primary" href="/homeAtendente">Voltar</a>
                 </div>
             </div>
-        </form>
     </div>
 
-      <!-- Rodapé -->
+    <!-- Rodapé -->
     <?php
         include 'componentes/footer.php';   
     ?>
