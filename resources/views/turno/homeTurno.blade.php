@@ -83,7 +83,7 @@
                         <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
                       </div>
                       <div class="modal-body">
-                        <label for="" class="form-label">Selecione o turno a ser excluído:</label>
+                        <label class="form-label">Selecione o turno a ser excluído:</label>
                         <select name="id" class="form-select">
                           @foreach ($turnos as $turno)
                             <option value="{{$turno->id}}">{{$turno->nome_turno}}</option>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Turno;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
 
 class TurnoController extends Controller
 {
@@ -40,8 +43,24 @@ class TurnoController extends Controller
 
     public function deletarTurno(Request $request)
     {
-        $turno = Turno::find($request->id);
-        $turno->delete();
+        try {
+            $turno = Turno::find($request->id);
+            $turno->delete();
+            return redirect('/homeTurno');
+        } catch (QueryException $exception){
+            $turnoAntigo = Turno::find($request->id);
+            $turnos = Turno::all();
+            return view('/turno/erroDeleteTurno', ['turnos' => $turnos, 'turnoAntigo' => $turnoAntigo]);
+        }
+    }
+
+    public function trocarTurno(Request $request)
+    {
+        User::where('turno_id', $request->turnoAntigo)
+        ->update(['turno_id' => $request->turnoNovo]);
+        
+        $turnoDeletar = Turno::find($request->turnoAntigo);
+        $turnoDeletar->delete();
         return redirect('/homeTurno');
     }
 }
