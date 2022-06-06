@@ -58,7 +58,7 @@
                       <td class="text-center">
                         <a href="/alterarTurno/{{$turno -> id}}"><i class="bi bi-pencil-fill link-dark"></i></a>
                         <a href="/consultarTurno/{{$turno -> id}}"><i class="bi bi-search link-dark"></i></a>
-                        <a href="/deletarTurno/{{$turno -> id}}"><i class="bi bi-trash-fill link-dark"></i></a>
+                        <!--<a href=""><i class="bi bi-trash-fill link-dark"></i></a>-->
                       </td>
                     </tr>
                   @endforeach
@@ -68,6 +68,36 @@
         <div class="d-flex flex-row-reverse">
             <div class="d-flex flex-column">
               <a class="btn btn-success" href="/cadastrarTurno">Cadastrar turno</a>
+            </div>
+            <div class="d-flex flex-column me-1">
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Excluir Turno
+              </button>
+              <form action="/deletarTurno" method="post">
+                @csrf
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Exclusão de turno</h5>
+                        <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+                      </div>
+                      <div class="modal-body">
+                        <label for="" class="form-label">Selecione o turno a ser excluído:</label>
+                        <select name="id" class="form-select">
+                          @foreach ($turnos as $turno)
+                            <option value="{{$turno->id}}">{{$turno->nome_turno}}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                      <div class="modal-footer">
+                        <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</a>
+                        <input type="submit" class="btn btn-danger" value="Excluir">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
         </div>
     </div>

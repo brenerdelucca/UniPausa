@@ -53,4 +53,4 @@ Route::post('/alterarTurno/{id}', [TurnoController::class, 'alterarTurno']);
 
 Route::get('/consultarTurno/{id}', [TurnoController::class, 'consultarTurno']);
 
-Route::get('/deletarTurno/{id}', [TurnoController::class, 'deletarTurno']);
+Route::post('/deletarTurno', [TurnoController::class, 'deletarTurno']);

@@ -38,9 +38,9 @@ class TurnoController extends Controller
         return view('/turno/consultarTurno', ['turno' => $turno]);
     }
 
-    public function deletarTurno($id)
+    public function deletarTurno(Request $request)
     {
-        $turno = Turno::find($id);
+        $turno = Turno::find($request->id);
         $turno->delete();
         return redirect('/homeTurno');
     }
