@@ -27,7 +27,7 @@
     <!-- Conteúdo -->
     <div class="container mt-5">
         <div class="row">
-            <h5>O turno {{$turnoAntigo->nome_turno}} já foi usado no cadastro de atendentes, caso queira excluí-lo selecione abaixo um novo turno para esse(s) atendentes, caso queira 
+            <h5>O turno {{$turnoAntigo->nome_turno}} já foi usado no cadastro de atendentes, caso queira excluí-lo selecione abaixo um novo turno para esse(s) atendente(s), caso queira 
                 desistir clique em voltar.</h5>
         </div>
         <form action="/trocarTurno" method="post">
@@ -45,7 +45,7 @@
           <input type="number" value="{{$turnoAntigo->id}}" name="turnoAntigo" style="opacity: 0;">
           <div class="row mt-3 text-center">
             <div class="col">
-              <a href="/homeTurno" class="btn btn-primary">Teste</a>
+              <a href="/homeTurno" class="btn btn-success">Voltar</a>
             </div>
             <div class="col">
               <input type="submit" value="Prosseguir" class="btn btn-danger">

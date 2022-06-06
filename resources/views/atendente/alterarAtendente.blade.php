@@ -127,8 +127,8 @@
                             Deseja realmente cancelar a alteração?
                           </div>
                           <div class="modal-footer">
-                            <a class="btn btn-secondary" data-bs-dismiss="modal">Não</a>
-                            <a class="btn btn-primary" href="/homeAtendente">Sim</a>
+                            <a class="btn btn-success" data-bs-dismiss="modal">Não</a>
+                            <a class="btn btn-danger" href="/homeAtendente">Sim</a>
                           </div>
                         </div>
                       </div>

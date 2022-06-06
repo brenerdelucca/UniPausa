@@ -91,7 +91,7 @@
                         </select>
                       </div>
                       <div class="modal-footer">
-                        <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</a>
+                        <a type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</a>
                         <input type="submit" class="btn btn-danger" value="Excluir">
                       </div>
                     </div>

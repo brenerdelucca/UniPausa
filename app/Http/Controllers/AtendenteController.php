@@ -79,4 +79,11 @@ class AtendenteController extends Controller
         $turnos = Turno::all();
         return view('/atendente/consultarAtendente', ['atendente' => $atendente, 'turnos' => $turnos]);
     }
+
+    public function deletarAtendente(Request $request)
+    {
+        $atendente = User::find($request->id);
+        $atendente->delete();
+        return redirect('/homeAtendente');
+    }
 }

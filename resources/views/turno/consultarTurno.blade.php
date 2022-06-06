@@ -79,7 +79,7 @@
         </div>
         <div class="row mt-5 justify-content-evenly">
           <div class="col-2 text-center">
-            <a class="btn btn-primary" href="/homeTurno">Voltar</a>
+            <a class="btn btn-success" href="/homeTurno">Voltar</a>
           </div>
         </div>
     </div>

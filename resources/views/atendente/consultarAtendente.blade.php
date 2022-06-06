@@ -113,7 +113,7 @@
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
                 <div class="d-flex flex-column text-center">
-                    <a class="btn btn-primary" href="/homeAtendente">Voltar</a>
+                    <a class="btn btn-success" href="/homeAtendente">Voltar</a>
                 </div>
             </div>
     </div>

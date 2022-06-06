@@ -67,6 +67,36 @@
             <div class="d-flex flex-column">
                 <a class="btn btn-success" href="/cadastrarAtendente">Cadastrar atendente</a>
             </div>
+            <div class="d-flex flex-column me-1">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Excluir atendente
+                </button>
+                <form action="/deletarAtendente" method="post">
+                    @csrf
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Exclusão de atendente</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <label class="form-label">Selecione o atendente a ser excluído:</label>
+                              <select name="id" class="form-select">
+                                @foreach ($atendentes as $atendente)
+                                    <option value="{{$atendente->id}}">{{$atendente->nome_atendente}} {{$atendente->sobrenome_atendente}}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
+                              <input type="submit" class="btn btn-danger" value="Excluir">
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     
