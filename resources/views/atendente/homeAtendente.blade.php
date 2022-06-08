@@ -30,6 +30,7 @@
                             <th scope="rol">ID</th>
                             <th scope="rol">Nome completo</th>
                             <th scope="rol">E-mail</th>
+                            <th scope="rol">Número</th>
                             <th scope="rol">Usuário</th>
                             <th scope="rol">Turno</th>
                             <th scope="rol">Status</th>
@@ -42,6 +43,11 @@
                             <td>{{$atendente->id}}</td>
                             <td>{{$atendente->nome_atendente}} {{$atendente->sobrenome_atendente}}</td>
                             <td>{{$atendente->email}}</td>
+                            @if (isset($atendente->ddd) && isset($atendente->numero_celular))
+                                <td>({{$atendente->ddd}}) {{substr($atendente->numero_celular, 0, 5)}}-{{substr($atendente->numero_celular, 5)}}</td>
+                            @else
+                                <td>Número não cadastrado</td>
+                            @endif
                             @if ($atendente->is_supervisor == 1)
                                 <td>Supervisor</td>
                             @else

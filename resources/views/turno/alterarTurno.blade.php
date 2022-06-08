@@ -36,16 +36,16 @@
             <label class="form-label">Nome</label>
             <input type="text" class="form-control" name="nome_turno" value="{{$turno->nome_turno}}" required>
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <label class="form-label">Hora de início</label>
             <input type="time" class="form-control" name="hr_inicio" value="{{$turno->hr_inicio}}" required>
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <label class="form-label">Hora de fim</label>
             <input type="time" class="form-control" name="hr_fim" value="{{$turno->hr_fim}}" required>
           </div>
         </div>
-        <div class="row mt-5 justify-content-around">
+        <div class="row mt-5 justify-content-evenly">
           <div class="col-3">
             <label class="form-label">Hora início almoço</label>
             <input type="time" class="form-control" name="hr_inicio_almoco" value="{{$turno->hr_inicio_almoco}}" required>
@@ -54,6 +54,7 @@
             <label class="form-label">Hora fim almoço</label>
             <input type="time" class="form-control" name="hr_fim_almoco" value="{{$turno->hr_fim_almoco}}" required>
           </div>
+          <div class="col-3"></div>
         </div>
         <div class="row mt-5 justify-content-evenly">
           <div class="col-3">
@@ -64,7 +65,7 @@
             <label class="form-label">Limite hr pausa tarde</label>
             <input type="time" class="form-control" name="limite_hr_pausa_tarde" value="{{$turno->limite_hr_pausa_tarde}}" required>
           </div>
-          <div class="col-2 mt-auto">
+          <div class="col-3 mt-auto">
             <label class="form-label">Ativo?</label>
             @if ($turno->ativo == 1)
               <select class="form-select" name="ativo">
@@ -80,7 +81,7 @@
           </div>
         </div>
         <div class="row mt-5 justify-content-evenly">
-          <div class="col-2 text-center">
+          <div class="col-3 text-center">
             <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancelar</a>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">

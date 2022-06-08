@@ -53,25 +53,25 @@
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
               @if (isset($atendente->ddd))
-                <div class="d-flex flex-column col-1">
+                <div class="d-flex flex-column">
                   <label class="form-label">DDD</label>
-                  <input type="text" class="form-control" placeholder="043" name="ddd" value="{{$atendente->ddd}}" pattern="[0-9]{3}">
+                  <input type="text" class="form-control" name="ddd" value="{{$atendente->ddd}}" pattern="[0-9]{2}">
                 </div>
               @else
-                <div class="d-flex flex-column col-1">
+                <div class="d-flex flex-column">
                   <label class="form-label">DDD</label>
-                  <input type="text" class="form-control" placeholder="043" name="ddd" pattern="[0-9]{3}">
+                  <input type="text" class="form-control" name="ddd" pattern="[0-9]{2}">
                 </div>
               @endif
               @if (isset($atendente->numero_celular))
                 <div class="d-flex flex-column">
                   <label class="form-label">Celular</label>
-                  <input type="text" class="form-control" placeholder="912345678" name="numero_celular" value="{{$atendente->numero_celular}}" pattern="[0-9]{9}">
+                  <input type="text" class="form-control" name="numero_celular" value="{{$atendente->numero_celular}}" pattern="[0-9]{9}">
                 </div>
               @else
                 <div class="d-flex flex-column">
                   <label class="form-label">Celular</label>
-                  <input type="text" class="form-control" placeholder="912345678" name="numero_celular" pattern="[0-9]{9}">
+                  <input type="text" class="form-control" name="numero_celular" pattern="[0-9]{9}">
                 </div>
               @endif
             </div>
@@ -135,7 +135,7 @@
                     </div>
                 </div>
                 <div class="d-flex flex-column">
-                    <input type="submit" class="btn btn-success" value="Cadastrar">
+                    <input type="submit" class="btn btn-success" value="Alterar">
                 </div>
             </div>
         </form>
