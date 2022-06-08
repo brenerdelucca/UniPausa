@@ -51,12 +51,12 @@
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
               @if (isset($atendente->ddd))
-                <div class="d-flex flex-column col-1">
+                <div class="d-flex flex-column">
                   <label class="form-label">DDD</label>
                   <input type="number" class="form-control" name="ddd" value="{{$atendente->ddd}}" disabled>
                 </div>
               @else
-                <div class="d-flex flex-column col-1">
+                <div class="d-flex flex-column">
                   <label class="form-label">DDD</label>
                   <input type="number" class="form-control" name="ddd"disabled>
                 </div>
