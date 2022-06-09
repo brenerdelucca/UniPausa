@@ -34,7 +34,7 @@
         <div class="row mt-5 justify-content-evenly">
           <div class="col-3">
             <label class="form-label">Nome</label>
-            <input type="text" class="form-control" name="nome_turno" pattern="[A-Za-z][A-Za-z1-9]{40}" required>
+            <input type="text" class="form-control" name="nome_turno" pattern="[A-Za-z]{1,40}[0-9]{0,10}" required>
           </div>
           <div class="col-3">
             <label class="form-label">Hora de início</label>
