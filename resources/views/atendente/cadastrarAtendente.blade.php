@@ -34,7 +34,7 @@
             <div class="d-flex flex-row justify-content-evenly">
                 <div class="d-flex flex-column">
                     <label class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome_atendente" required>
+                    <input type="text" class="form-control" name="nome_atendente" pattern="[A-Za-z][A-Za-z1-9]{40}" required>
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Sobrenome</label>
