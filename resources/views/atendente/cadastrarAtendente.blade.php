@@ -48,7 +48,7 @@
               </div>
               <div class="d-flex flex-column">
                 <label class="form-label">Senha</label>
-                <input type="password" name="password" class="form-control" required>
+                <input type="text" name="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}" required>
               </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">

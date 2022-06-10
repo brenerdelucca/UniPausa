@@ -42,7 +42,7 @@
               @endforeach
             </select>
           </div>
-          <input type="number" value="{{$turnoAntigo->id}}" name="turnoAntigo" style="opacity: 0;">
+          <input type="hidden" value="{{$turnoAntigo->id}}" name="turnoAntigo">
           <div class="row mt-3 text-center">
             <div class="col">
               <a href="/homeTurno" class="btn btn-success">Voltar</a>
