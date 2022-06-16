@@ -28,7 +28,7 @@
     </nav>
     
     <!-- Conteúdo -->
-    <div class="container mt-3">
+    <div class="container card mt-5 p-4">
             <div class="d-flex flex-row justify-content-evenly">
                 <div class="d-flex flex-column">
                     <label class="form-label">Nome</label>

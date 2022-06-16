@@ -28,10 +28,10 @@
     </nav>
     
     <!-- Conteúdo -->
-    <div class="container">
+    <div class="container card mt-5 p-4">
       <form action="/alterarTurno/{{$turno->id}}" method="POST">
         @csrf
-        <div class="row mt-5 justify-content-evenly">
+        <div class="row justify-content-evenly">
           <div class="col-3">
             <label class="form-label">Nome</label>
             <input type="text" class="form-control" name="nome_turno" value="{{$turno->nome_turno}}" pattern="[A-Za-z]{1,40}[0-9]{0,10}" required>

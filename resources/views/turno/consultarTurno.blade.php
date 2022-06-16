@@ -28,8 +28,8 @@
     </nav>
     
     <!-- Conteúdo -->
-    <div class="container">
-        <div class="row mt-5 justify-content-evenly">
+    <div class="container card mt-5 p-4">
+        <div class="row justify-content-evenly">
           <div class="col-3">
             <label class="form-label">Nome</label>
             <input type="text" class="form-control" name="nome_turno" value="{{$turno->nome_turno}}" disabled>

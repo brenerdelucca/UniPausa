@@ -28,7 +28,7 @@
     </nav>
     
     <!-- Conteúdo -->
-    <div class="container mt-3">
+    <div class="container card mt-5 p-4">
         <form action="/alterarAtendente/{{$atendente->id}}" method="POST">
             @csrf
             <div class="d-flex flex-row justify-content-evenly">
