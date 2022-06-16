@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Turno;
 use App\Models\User;
+use Exception;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,8 +20,13 @@ class AtendenteController extends Controller
 
     public function inserirAtendente(Request $request)
     {
-        User::create($request->all());
-        return redirect('/homeAtendente');
+        try {
+            User::create($request->all());
+            return redirect('/homeAtendente');
+        } catch(QueryException $exception){
+            $turnos = Turno::all();
+            return view('/atendente/erroCadastrarAtendente', ['dadosCadastro' => $request, 'turnos' => $turnos]);
+        }
     }
 
     public function telaAtendentes()

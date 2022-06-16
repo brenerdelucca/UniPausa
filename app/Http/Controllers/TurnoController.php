@@ -43,7 +43,7 @@ class TurnoController extends Controller
 
     public function deletarTurno(Request $request)
     {
-        try {
+        try{
             $turno = Turno::find($request->id);
             $turno->delete();
             return redirect('/homeTurno');

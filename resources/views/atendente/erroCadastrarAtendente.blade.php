@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- jquery -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
@@ -34,11 +36,11 @@
             <div class="d-flex flex-row justify-content-evenly">
                 <div class="d-flex flex-column">
                     <label class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome_atendente" pattern="[A-Za-z]{1,60}[0-9]{0,10}" required>
+                    <input type="text" class="form-control" name="nome_atendente" value="{{$dadosCadastro->nome_atendente}}" pattern="[A-Za-z]{1,60}[0-9]{0,10}" required>
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control" name="sobrenome_atendente" pattern="[A-Za-z]{1,60}[0-9]{0,10}" required>
+                    <input type="text" class="form-control" name="sobrenome_atendente" value="{{$dadosCadastro->sobrenome_atendente}}" pattern="[A-Za-z]{1,60}[0-9]{0,10}" required>
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
@@ -54,39 +56,61 @@
             <div class="d-flex flex-row justify-content-evenly mt-5">
                 <div class="d-flex flex-column">
                     <label class="form-label">DDD</label>
-                    <input type="text" class="form-control" placeholder="043" name="ddd" pattern="[0-9]{2}">
+                    @if (is_null($dadosCadastro->ddd))
+                      <input type="text" class="form-control" placeholder="043" name="ddd" pattern="[0-9]{2}">
+                    @else
+                      <input type="text" class="form-control" placeholder="043" name="ddd" value="{{$dadosCadastro->ddd}}" pattern="[0-9]{2}">
+                    @endif
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Celular</label>
-                    <input type="text" class="form-control" placeholder="912345678" name="numero_celular" pattern="[0-9]{9}">
+                    @if (is_null($dadosCadastro->numero_celular))
+                      <input type="text" class="form-control" placeholder="912345678" name="numero_celular" pattern="[0-9]{9}">
+                    @else
+                      <input type="text" class="form-control" placeholder="912345678" name="numero_celular" value="{{$dadosCadastro->numero_celular}}" pattern="[0-9]{9}">
+                    @endif
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
-                <div class="flex flex-column">
-                  <label class="form-label">Turno</label>
-                  <select name="turno_id" class="form-select" required>
-                    @foreach ($turnos as $turno)
-                      @if ($turno->ativo == 1)
-                        <option value="{{$turno->id}}">{{$turno->nome_turno}}</option>
+              <div class="flex flex-column">
+                <label class="form-label">Turno</label>
+                <select name="turno_id" class="form-select" required>
+                  @foreach ($turnos as $turno)
+                    @if ($turno->ativo == 1)
+                      @if ($dadosCadastro->turno_id == $turno->id)
+                        <option value="{{$turno->id}}" selected>{{$turno->nome_turno}}</option>  
+                      @else
+                        <option value="{{$turno->id}}">{{$turno->nome_turno}}</option> 
                       @endif
-                    @endforeach
-                  </select>
-                </div>
-                <div class="d-flex flex-column">
-                    <label class="form-label">É supervisor?</label>
-                    <select name="is_supervisor" class="form-select" required>
-                        <option value="1">Sim</option>
-                        <option value="0">Não</option>
-                    </select>
-                </div>
-                <div class="d-flex flex-column">
-                  <label class="form-label">Ativo?</label>
-                  <select name="ativo" class="form-select" required>
-                      <option value="1">Sim</option>
+                    @endif
+                  @endforeach
+                </select>
+              </div>
+              <div class="d-flex flex-column">
+                  <label class="form-label">É supervisor?</label>
+                  <select name="is_supervisor" class="form-select" required>
+                    @if ($dadosCadastro->is_supervisor == 1)
+                      <option value="1" selected>Sim</option>
                       <option value="0">Não</option>
+                    @else
+                      <option value="1">Sim</option>
+                      <option value="0" selected>Não</option>
+                    @endif
                   </select>
-                </div>
-            </div>
+              </div>
+              <div class="d-flex flex-column">
+                <label class="form-label">Ativo?</label>
+                <select name="ativo" class="form-select" required>
+                  @if ($dadosCadastro->ativo == 1)
+                    <option value="1" selected>Sim</option>
+                    <option value="0">Não</option>
+                  @else
+                    <option value="1">Sim</option>
+                    <option value="0" selected>Não</option>
+                  @endif
+                </select>
+              </div>
+            </div>            
             <div class="d-flex flex-row justify-content-evenly mt-5">
                 <div class="d-flex flex-column">
                     <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancelar</a>
@@ -114,6 +138,28 @@
             </div>
         </form>
     </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalErro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">E-mail já utilizado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Este e-mail já está sendo usado, por favor utilize outro.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(window).on('load',function(){
+  $('#modalErro').modal('show'); });
+</script>
 
       <!-- Rodapé -->
     <?php
