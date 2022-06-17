@@ -28,7 +28,7 @@
     </nav>
 
     <!-- Conteúdo -->
-    <div class="container card mt-5 p-4">
+    <div class="container card mt-2 p-2">
         <form action="/inserirAtendente" method="POST">
             @csrf
             <div class="d-flex flex-row justify-content-evenly">
