@@ -36,11 +36,11 @@
             <div class="d-flex flex-row justify-content-evenly">
                 <div class="d-flex flex-column">
                     <label class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome_atendente" value="{{$dadosCadastro->nome_atendente}}" pattern="[A-Za-z]{1,60}[0-9]{0,10}" required>
+                    <input type="text" class="form-control" name="nome_atendente" value="{{$dadosCadastro->nome_atendente}}" pattern="[A-Za-z]{1,60}[0-9]{0,10}[\w\s]{0,}" required>
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control" name="sobrenome_atendente" value="{{$dadosCadastro->sobrenome_atendente}}" pattern="[A-Za-z]{1,60}[0-9]{0,10}" required>
+                    <input type="text" class="form-control" name="sobrenome_atendente" value="{{$dadosCadastro->sobrenome_atendente}}" pattern="[A-Za-z]{1,60}[0-9]{0,10}[\w\s]{0,}" required>
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
@@ -148,7 +148,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Este e-mail já está sendo usado, por favor utilize outro.
+        O e-mail {{$dadosAlteracao->email}} já está sendo usado, por favor utilize outro.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok</button>

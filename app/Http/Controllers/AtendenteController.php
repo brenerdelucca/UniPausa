@@ -25,7 +25,7 @@ class AtendenteController extends Controller
             return redirect('/homeAtendente');
         } catch(QueryException $exception){
             $turnos = Turno::all();
-            return view('/atendente/erroCadastrarAtendente', ['dadosCadastro' => $request, 'turnos' => $turnos]);
+            return view('/atendente/erroCadastrarAtendente', ['dadosCadastro' => $request, 'turnos' => $turnos, 'dadosAlteracao' => $request]);
         }
     }
 
@@ -56,23 +56,33 @@ class AtendenteController extends Controller
         $atendente = User::find($id);
         if(isset($request->password))
         {
-            $atendente->update($request->all()); 
+            try{
+                $atendente->update($request->all());
+                return redirect('/homeAtendente');
+            } catch(QueryException $exception){
+                $turnos = Turno::all();
+                return view('/atendente/erroAlterarAtendente', ['dadosAlteracao' => $request, 'turnos' => $turnos, 'id' => $id, 'antigo' => $atendente]);
+            }
         }
         else
         {
-            $atendente->update([
-                'nome_atendente' => $request->nome_atendente,
-                'sobrenome_atendente' => $request->sobrenome_atendente,
-                'email' => $request->email,
-                'ddd' => $request->ddd,
-                'numero_celular' => $request->numero_celular,
-                'is_supervisor' => $request->is_supervisor,
-                'ativo' => $request->ativo,
-                'turno_id' => $request->turno_id
-            ]); 
+            try{
+                $atendente->update([
+                    'nome_atendente' => $request->nome_atendente,
+                    'sobrenome_atendente' => $request->sobrenome_atendente,
+                    'email' => $request->email,
+                    'ddd' => $request->ddd,
+                    'numero_celular' => $request->numero_celular,
+                    'is_supervisor' => $request->is_supervisor,
+                    'ativo' => $request->ativo,
+                    'turno_id' => $request->turno_id
+                ]); 
+                return redirect('/homeAtendente');
+            } catch(QueryException $exception){
+                $turnos = Turno::all();
+                return view('/atendente/erroAlterarAtendente', ['dadosAlteracao' => $request, 'turnos' => $turnos, 'id' => $id, 'antigo' => $atendente]);
+            }
         }
-               
-        return redirect('/homeAtendente');
     }
 
     public function consultarAtendente($id)
