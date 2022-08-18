@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AtendenteController;
+use App\Http\Controllers\ParametrosController;
 use App\Http\Controllers\TurnoController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,3 +59,9 @@ Route::get('/consultarTurno/{id}', [TurnoController::class, 'consultarTurno']);
 Route::post('/deletarTurno', [TurnoController::class, 'deletarTurno']);
 
 Route::post('/trocarTurno', [TurnoController::class, 'trocarTurno']);
+
+#Rotas dos parâmetros
+
+Route::get('/parametros', [ParametrosController::class, 'telaParametros']);
+
+Route::post('/alterarParametros', [ParametrosController::class, 'alterarParametros']);

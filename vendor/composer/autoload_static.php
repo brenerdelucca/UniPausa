@@ -507,7 +507,10 @@ class ComposerStaticInit59fa69ee3edf75f2e04209dce1c3fced
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AtendenteController' => __DIR__ . '/../..' . '/app/Http/Controllers/AtendenteController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\ParametrosController' => __DIR__ . '/../..' . '/app/Http/Controllers/ParametrosController.php',
+        'App\\Http\\Controllers\\TurnoController' => __DIR__ . '/../..' . '/app/Http/Controllers/TurnoController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -517,6 +520,7 @@ class ComposerStaticInit59fa69ee3edf75f2e04209dce1c3fced
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Parametro' => __DIR__ . '/../..' . '/app/Models/Parametro.php',
         'App\\Models\\Turno' => __DIR__ . '/../..' . '/app/Models/Turno.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
