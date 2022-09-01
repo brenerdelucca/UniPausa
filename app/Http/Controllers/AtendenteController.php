@@ -29,10 +29,19 @@ class AtendenteController extends Controller
             $request->session()->regenerate();
             return redirect('home');
         }
-        else
-        {
-            return redirect()->back()->with('danger', 'E-mail ou senha inválida.');
-        }
+
+        return redirect()->back()->with('danger', 'E-mail ou senha inválida.');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+ 
+        $request->session()->invalidate();
+     
+        $request->session()->regenerateToken();
+     
+        return redirect('/');
     }
 
     public function cadastrarAtendente()
@@ -57,6 +66,7 @@ class AtendenteController extends Controller
         $atendentes = DB::table('users')
         ->join('turnos', 'users.turno_id', "=", 'turnos.id')
         ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ddd', 'users.numero_celular', 'users.ativo', 'turnos.nome_turno')
+        ->where('is_adm', '=', false)
         ->orderBy('id')
         ->get();
         return view('/atendente/homeAtendente', ['atendentes' => $atendentes]);
