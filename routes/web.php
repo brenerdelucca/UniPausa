@@ -24,7 +24,9 @@ Route::get('/home', function() {
     return view('home');
 });
 
-#Rotas dos atendentes
+#Controle de Users
+
+Route::post('/auth', [AtendenteController::class, 'auth']);
 
 Route::get('/homeAtendente', [AtendenteController::class, 'telaAtendentes']);
 
@@ -40,7 +42,7 @@ Route::get('/consultarAtendente/{id}', [AtendenteController::class, 'consultarAt
 
 Route::post('/deletarAtendente', [AtendenteController::class, 'deletarAtendente']);
 
-#Rotas dos turnos
+#Controle de turnos
 
 Route::get('/homeTurno', [TurnoController::class, 'telaTurnos']);
 
@@ -60,7 +62,7 @@ Route::post('/deletarTurno', [TurnoController::class, 'deletarTurno']);
 
 Route::post('/trocarTurno', [TurnoController::class, 'trocarTurno']);
 
-#Rotas dos parâmetros
+#Gerenciamento dos parâmetros
 
 Route::get('/parametros', [ParametrosController::class, 'telaParametros']);
 

@@ -9,9 +9,32 @@ use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AtendenteController extends Controller
 {
+
+    public function auth(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ],[
+            'email.required' => 'E-mail é obrigatório.',
+            'password.required' => 'Senha é obrigatória.',
+        ]);
+
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password]))
+        {
+            $request->session()->regenerate();
+            return redirect('home');
+        }
+        else
+        {
+            return redirect()->back()->with('danger', 'E-mail ou senha inválida.');
+        }
+    }
+
     public function cadastrarAtendente()
     {
         $turnos = Turno::all();

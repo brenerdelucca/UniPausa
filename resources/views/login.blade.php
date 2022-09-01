@@ -46,17 +46,32 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="/home" method="get">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if (session('danger'))
+                            <div class="alert alert-danger">
+                                {{session('danger')}}
+                            </div>
+                        @endif
+                        <form id="login-form" class="form" action="/auth" method="post">
+                            @csrf
                             <div class="text-center">
                                 <img src="img/Unipausa.png" alt="" width="100px">
                             </div>
                             <div class="form-group">
                                 <label for="username" class="text-login">Email</label><br>
-                                <input type="email" name="username" id="username" class="form-control">
+                                <input type="email" name="email" id="username" class="form-control">
                             </div>
                             <div class="form-group" style="margin-top: 2%;">
                                 <label for="password" class="text-login">Senha</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="row" style="margin-top: 5%;">
                                 <div class="col-6" >
