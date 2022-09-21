@@ -86,18 +86,20 @@
                   @endforeach
                 </select>
               </div>
-              <div class="d-flex flex-column">
-                  <label class="form-label">É supervisor?</label>
-                  <select name="is_supervisor" class="form-select" required>
-                    @if ($dadosCadastro->is_supervisor == 1)
-                      <option value="1" selected>Sim</option>
-                      <option value="0">Não</option>
-                    @else
-                      <option value="1">Sim</option>
-                      <option value="0" selected>Não</option>
-                    @endif
-                  </select>
-              </div>
+              @if (auth()->user()->is_adm)
+                <div class="d-flex flex-column">
+                    <label class="form-label">É supervisor?</label>
+                    <select name="is_supervisor" class="form-select" required>
+                      @if ($dadosCadastro->is_supervisor == 1)
+                        <option value="1" selected>Sim</option>
+                        <option value="0">Não</option>
+                      @else
+                        <option value="1">Sim</option>
+                        <option value="0" selected>Não</option>
+                      @endif
+                    </select>
+                </div>
+              @endif
               <div class="d-flex flex-column">
                 <label class="form-label">Ativo?</label>
                 <select name="ativo" class="form-select" required>

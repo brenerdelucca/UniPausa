@@ -31,7 +31,9 @@
                             <th scope="rol">Nome completo</th>
                             <th scope="rol">E-mail</th>
                             <th scope="rol">Número</th>
-                            <th scope="rol">Usuário</th>
+                            @if (auth()->user()->is_adm)
+                                <th scope="rol">Usuário</th>
+                            @endif
                             <th scope="rol">Turno</th>
                             <th scope="rol">Status</th>
                             <th scope="rol" class="text-center">Ações</th>
@@ -48,10 +50,12 @@
                             @else
                                 <td>Número não cadastrado</td>
                             @endif
-                            @if ($atendente->is_supervisor == 1)
-                                <td>Supervisor</td>
-                            @else
-                                <td>Atendente</td>
+                            @if (auth()->user()->is_adm)
+                                @if ($atendente->is_supervisor == 1)
+                                    <td>Supervisor</td>
+                                @else
+                                    <td>Atendente</td>
+                                @endif
                             @endif
                             <td>{{$atendente->nome_turno}}</td>
                             @if ($atendente->ativo == 1)

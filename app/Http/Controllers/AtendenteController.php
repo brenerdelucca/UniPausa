@@ -10,6 +10,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AtendenteController extends Controller
 {
@@ -53,6 +54,9 @@ class AtendenteController extends Controller
     public function inserirAtendente(Request $request)
     {
         try {
+            $request->merge([
+                'password' =>Hash::make($request->password)
+            ]);
             User::create($request->all());
             return redirect('/homeAtendente');
         } catch(QueryException $exception){
@@ -90,6 +94,9 @@ class AtendenteController extends Controller
         if(isset($request->password))
         {
             try{
+                $request->merge([
+                    'password' =>Hash::make($request->password)
+                ]);
                 $atendente->update($request->all());
                 return redirect('/homeAtendente');
             } catch(QueryException $exception){

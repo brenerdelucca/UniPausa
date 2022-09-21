@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             /*$table->timestamp('email_verified_at')->nullable();*/
-            $table->boolean('is_supervisor');
-            $table->boolean('is_adm');
+            $table->boolean('is_supervisor')->default(0);
+            $table->boolean('is_adm')->default(0);
             $table->integer('ddd')->nullable();
             $table->integer('numero_celular')->nullable();
             $table->boolean('ativo');
