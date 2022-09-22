@@ -95,7 +95,7 @@ class AtendenteController extends Controller
         {
             try{
                 $request->merge([
-                    'password' =>Hash::make($request->password)
+                    'password' => Hash::make($request->password)
                 ]);
                 $atendente->update($request->all());
                 return redirect('/homeAtendente');

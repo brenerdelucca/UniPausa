@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        /*\App\Models\Turno::factory()->create([
+        \App\Models\Turno::factory()->create([
             'nome_turno' => 'Turno das 8',
             'hr_inicio' => '08:00:00',
             'hr_fim' => '18:00:00',
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'limite_hr_pausa_manha' => '11:35:00',
             'limite_hr_pausa_tarde' => '17:00:00',
             'ativo' => true,
-        ]);*/
+        ]);
 
          \App\Models\User::factory()->create([
              'nome_atendente' => 'Gerente',
