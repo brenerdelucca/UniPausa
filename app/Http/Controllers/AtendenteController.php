@@ -143,4 +143,37 @@ class AtendenteController extends Controller
         $atendente->delete();
         return redirect('/homeAtendente');
     }
+
+    public function telaAlterarSenha()
+    {
+        return view('/atendente/alterarSenha', ['userId' => auth()->user()->id]);
+    }
+
+    public function alterarSenha(Request $request)
+    {
+        if(Hash::check($request->senhaAntiga, auth()->user()->password))
+        {
+            if($request->senhaNova == $request->confirmaSenhaNova)
+            {
+                $atendente = User::find(auth()->user()->id);
+
+                $atendente->update([
+                    'password' => Hash::make($request->novaSenha)
+                ]);
+                
+                //reautenticar aqui
+            }
+            else
+            {
+                return redirect()->back()->with('dangerNew', 'Confirmação da nova senha não bate.');
+            }
+        }
+        else
+        {
+            return redirect()->back()->with('dangerOld', 'Senha antiga incorreta.');
+        }
+        
+        return redirect()->back()->with('success', 'Senha alterada com sucesso!');
+
+    }
 }

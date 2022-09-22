@@ -27,6 +27,10 @@ Route::middleware(['atendente'])->group(function(){
         return view('home');
     });
     
+    Route::get('/telaAlterarSenha', [AtendenteController::class, 'telaAlterarSenha']);
+
+    Route::post('/alterarSenha', [AtendenteController::class, 'alterarSenha']);
+
     Route::get('/logout', [AtendenteController::class, 'logout']);
 });
 
