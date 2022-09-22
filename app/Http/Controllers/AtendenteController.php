@@ -146,7 +146,7 @@ class AtendenteController extends Controller
 
     public function telaAlterarSenha()
     {
-        return view('/atendente/alterarSenha', ['userId' => auth()->user()->id]);
+        return view('/atendente/alterarSenha');
     }
 
     public function alterarSenha(Request $request)
