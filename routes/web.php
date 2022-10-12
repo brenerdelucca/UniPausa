@@ -3,6 +3,7 @@
 use App\Http\Controllers\AtendenteController;
 use App\Http\Controllers\ParametrosController;
 use App\Http\Controllers\TurnoController;
+use App\Http\Controllers\PausaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,15 +24,17 @@ Route::get('/', function () {
 Route::post('/auth', [AtendenteController::class, 'auth']);
 
 Route::middleware(['atendente'])->group(function(){
-    Route::get('/home', function() {
-        return view('home');
-    });
+    Route::get('/home', [PausaController::class, 'atendentesEmPausa']);
     
     Route::get('/telaAlterarSenha', [AtendenteController::class, 'telaAlterarSenha']);
 
     Route::post('/alterarSenha', [AtendenteController::class, 'alterarSenha']);
 
     Route::get('/logout', [AtendenteController::class, 'logout']);
+
+    Route::post('/entrarEmPausa', [PausaController::class, 'entrarEmPausa']);
+
+    Route::post('/sairDaPausa', [PausaController::class, 'sairDaPausa']);
 });
 
 Route::middleware(['supervisor'])->group(function(){

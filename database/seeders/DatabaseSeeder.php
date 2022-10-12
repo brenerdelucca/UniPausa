@@ -47,5 +47,11 @@ class DatabaseSeeder extends Seeder
             'is_supervisor' => false,
             'is_adm' => false,
         ]);
+
+        \App\Models\Parametro::factory()->create([
+            'qntd_pessoas_pausa' => 1,
+            'tempo_pausa' => '00:15:00',
+            'pausas_por_dia_por_pessoa' => 1
+        ]);
     }
 }

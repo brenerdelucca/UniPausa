@@ -43,7 +43,28 @@
             <div class="d-flex flex-row justify-content-evenly">
                 <a class="btn btn-danger" href="/home">Cancelar</a>
                 <div class="d-flex flex-column">
-                    <input type="submit" class="btn btn-success" value="Alterar senha">
+                    <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Alterar senha
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Alteração de senha</h1>
+                    <a class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="cursor: pointer"></a>
+                    </div>
+                    <div class="modal-body">
+                        Ao alterar a senha você sera deslogado do sistema, deseja prosseguir?
+                    </div>
+                    <div class="modal-footer">
+                    <a class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</a>
+                    <input type="submit" class="btn btn-success" value="Sim">
+                    </div>
+                </div>
                 </div>
             </div>
         </form>

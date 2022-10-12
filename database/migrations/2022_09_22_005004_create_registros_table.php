@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->date('dt_pausa');
             $table->time('hr_inicio_pausa');
-            $table->time('hr_fim_pausa');
+            $table->time('hr_fim_pausa')->nullable();
             $table->time('tempo_estimado_pausa');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

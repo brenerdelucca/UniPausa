@@ -55,11 +55,6 @@
                                 </ul>
                             </div>
                         @endif
-                        @if (session('danger'))
-                            <div class="alert alert-danger">
-                                {{session('danger')}}
-                            </div>
-                        @endif
                         <form id="login-form" class="form" action="/auth" method="post">
                             @csrf
                             <div class="text-center">
@@ -82,6 +77,11 @@
                                 </div>
                             </div>
                         </form>
+                        @if (session('danger'))
+                            <div class="alert alert-danger">
+                                {{session('danger')}}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

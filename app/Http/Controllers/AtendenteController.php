@@ -158,10 +158,8 @@ class AtendenteController extends Controller
                 $atendente = User::find(auth()->user()->id);
 
                 $atendente->update([
-                    'password' => Hash::make($request->novaSenha)
-                ]);
-                
-                //reautenticar aqui
+                    'password' => Hash::make($request->senhaNova)
+                ]); 
             }
             else
             {
@@ -173,7 +171,7 @@ class AtendenteController extends Controller
             return redirect()->back()->with('dangerOld', 'Senha antiga incorreta.');
         }
         
-        return redirect()->back()->with('success', 'Senha alterada com sucesso!');
+        return redirect('/logout');
 
     }
 }

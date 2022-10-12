@@ -27,13 +27,12 @@
                 </div>
             </div>
             <div class="dropdown">
-                <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #288BA8; color: white;">
                     <?php echo auth()->user()->nome_atendente . ' ' . auth()->user()->sobrenome_atendente; ?>
                     <i class="bi bi-person-circle"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end user-navigation">
                     <li><a class="dropdown-item" href="/telaAlterarSenha">Alterar senha</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="/logout">Sair</a></li>
                 </ul>
