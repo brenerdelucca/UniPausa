@@ -15,7 +15,7 @@
                                 <a class="nav-link" href="/homeTurno">Turnos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/telaRelatorioPausa">Relatórios</a>
+                                <a class="nav-link" href="/telaRelatorios">Relatórios</a>
                             </li>
                             <?php if(auth()->user()->is_adm){ ?>
                                 <li class="nav-item">
