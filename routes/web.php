@@ -4,6 +4,7 @@ use App\Http\Controllers\AtendenteController;
 use App\Http\Controllers\ParametrosController;
 use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\PausaController;
+use App\Http\Controllers\RegistroController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,6 +74,10 @@ Route::middleware(['supervisor'])->group(function(){
     Route::post('/deletarTurno', [TurnoController::class, 'deletarTurno']);
 
     Route::post('/trocarTurno', [TurnoController::class, 'trocarTurno']);
+
+    Route::get('/telaRelatorioPausa', [RegistroController::class, 'telaRelatorioPausa']);
+
+    Route::post('/relatorioPausa', [RegistroController::class, 'relatorioPausa']);
 });
 
 Route::middleware(['adm'])->group(function(){
