@@ -10,3 +10,15 @@
 .user-navigation a{
     color: black;
 }
+
+li {
+    font-family: sans-serif;
+    border-color: black;
+}
+
+#buttonUser{
+    background-color: #003f6e; 
+    color: white; 
+    font-family: sans-serif; 
+    font-size: 15px;
+}

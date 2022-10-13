@@ -17,6 +17,7 @@ class PausaController extends Controller
         ->join('registros', 'registros.user_id', '=', 'users.id')
         ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'registros.*')
         ->where('users.esta_em_pausa', true)
+        ->where('hr_fim_pausa', null)
         ->get();
         
         return view('home', ['atendentesEmPausa' => $atendentesEmPausa]);

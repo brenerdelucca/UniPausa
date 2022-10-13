@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <button class="btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #288BA8; color: white;">
+                <button class="btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="buttonUser">
                     <?php echo auth()->user()->nome_atendente . ' ' . auth()->user()->sobrenome_atendente; ?>
                     <i class="bi bi-person-circle"></i>
                 </button>

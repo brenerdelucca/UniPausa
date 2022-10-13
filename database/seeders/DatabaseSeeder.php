@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Parametro::factory()->create([
-            'qntd_pessoas_pausa' => 1,
+            'qntd_pessoas_pausa' => 2,
             'tempo_pausa' => '00:15:00',
             'pausas_por_dia_por_pessoa' => 1
         ]);
