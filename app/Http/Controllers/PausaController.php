@@ -82,6 +82,6 @@ class PausaController extends Controller
         ->limit(1)
         ->update(['hr_fim_pausa' => date('H:i')]);
 
-        return redirect('/home');
+        return redirect('/home')->with('success', 'Pausa finalizada!');
     }
 }
