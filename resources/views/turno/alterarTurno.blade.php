@@ -58,7 +58,7 @@
             <input type="time" class="form-control" name="limite_hr_pausa_tarde" value="{{$turno->limite_hr_pausa_tarde}}" required>
           </div>
           <div class="col-3 mt-auto">
-            <label class="form-label">Ativo?</label>
+            <label class="form-label">Status</label>
             @if ($turno->ativo == 1)
               <select class="form-select" name="ativo">
                 <option value="1" selected>Sim</option>

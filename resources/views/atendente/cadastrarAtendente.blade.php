@@ -74,7 +74,7 @@
                   </div>
                 @endif
                 <div class="col-2">
-                  <label class="form-label">Ativo?</label>
+                  <label class="form-label">Status</label>
                   <select name="ativo" class="form-select" required>
                       <option value="1">Sim</option>
                       <option value="0">Não</option>

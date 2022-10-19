@@ -95,7 +95,7 @@
                   </div>
                 @endif
                 <div class="col-2">
-                  <label class="form-label">Ativo?</label>
+                  <label class="form-label">Status</label>
                   <select name="ativo" class="form-select" required>
                     @if ($atendente->ativo == 1)
                       <option value="1" selected>Sim</option>
