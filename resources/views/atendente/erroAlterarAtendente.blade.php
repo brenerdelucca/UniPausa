@@ -70,7 +70,7 @@
               @endif
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">
-                <div class="flex flex-column">
+                <div class="col-2">
                   <label class="form-label">Turno</label>
                   <select name="turno_id" class="form-select" required>
                     @foreach ($turnos as $turno)
@@ -83,7 +83,7 @@
                   </select>
                 </div>
                 @if (auth()->user()->is_adm)
-                  <div class="d-flex flex-column">
+                  <div class="col-2">
                       <label class="form-label">É supervisor?</label>
                       <select name="is_supervisor" class="form-select" required>
                         @if ($dadosAlteracao->is_supervisor == 1)
@@ -96,7 +96,7 @@
                       </select>
                   </div>
                 @endif
-                <div class="d-flex flex-column">
+                <div class="col-2">
                   <label class="form-label">Ativo?</label>
                   <select name="ativo" class="form-select" required>
                     @if ($dadosAlteracao->ativo == 1)
