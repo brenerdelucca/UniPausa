@@ -26,6 +26,7 @@ class PausaController extends Controller
 
     public function entrarEmPausa()
     {
+        //Verifica se o horário permite tirar pausa
         $horaAtual = date('H:i');
         $turnoAtendente = Turno::find(auth()->user()->turno_id);
         if($horaAtual < $turnoAtendente->hr_inicio
@@ -60,7 +61,7 @@ class PausaController extends Controller
                 'user_id' => auth()->user()->id
             ]);
 
-            return redirect('/home');
+            return redirect('/home')->with('success', 'Pausa iniciada!');
         }
         else
         {
