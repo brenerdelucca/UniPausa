@@ -76,8 +76,8 @@
                 <div class="col-2">
                   <label class="form-label">Status</label>
                   <select name="ativo" class="form-select" required>
-                      <option value="1">Sim</option>
-                      <option value="0">Não</option>
+                      <option value="1">Ativo</option>
+                      <option value="0">Inativo</option>
                   </select>
                 </div>
             </div>

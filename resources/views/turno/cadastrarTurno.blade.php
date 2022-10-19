@@ -60,8 +60,8 @@
           <div class="col-3 mt-auto">
             <label class="form-label">Status</label>
             <select class="form-select" name="ativo">
-              <option value="1" selected>Sim</option>
-              <option value="0">Não</option>
+              <option value="1" selected>Ativo</option>
+              <option value="0">Inativo</option>
             </select>
           </div>
         </div>

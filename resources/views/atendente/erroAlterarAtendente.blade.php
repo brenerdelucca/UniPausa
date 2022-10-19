@@ -100,11 +100,11 @@
                   <label class="form-label">Status</label>
                   <select name="ativo" class="form-select" required>
                     @if ($dadosAlteracao->ativo == 1)
-                      <option value="1" selected>Sim</option>
-                      <option value="0">Não</option>
+                      <option value="1" selected>Ativo</option>
+                      <option value="0">Inativo</option>
                     @else
-                      <option value="1">Sim</option>
-                      <option value="0" selected>Não</option>
+                      <option value="1">Ativo</option>
+                      <option value="0" selected>Inativo</option>
                     @endif
                   </select>
                 </div>

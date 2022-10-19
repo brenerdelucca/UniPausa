@@ -61,13 +61,13 @@
             <label class="form-label">Status</label>
             @if ($turno->ativo == 1)
               <select class="form-select" name="ativo">
-                <option value="1" selected>Sim</option>
-                <option value="0">Não</option>
+                <option value="1" selected>Ativo</option>
+                <option value="0">Inativo</option>
               </select>
             @else
               <select class="form-select" name="ativo">
-                <option value="1">Sim</option>
-                <option value="0" selected>Não</option>
+                <option value="1">Ativo</option>
+                <option value="0" selected>Inativo</option>
               </select>
             @endif
           </div>
