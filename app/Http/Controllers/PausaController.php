@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Registro;
 use App\Models\User;
+use App\Models\Turno;
 use App\Models\Parametro;
 use Illuminate\Support\Facades\DB;
 
@@ -25,6 +26,15 @@ class PausaController extends Controller
 
     public function entrarEmPausa()
     {
+        $horaAtual = date('H:i');
+        $turnoAtendente = Turno::find(auth()->user()->turno_id);
+        if($horaAtual < $turnoAtendente->hr_inicio
+        || ($horaAtual > $turnoAtendente->limite_hr_pausa_manha && $horaAtual < $turnoAtendente->hr_fim_almoco)
+        || $horaAtual > $turnoAtendente->limite_hr_pausa_tarde)
+        {
+            return redirect()->back()->with('warning', 'Não é permitido entrar em pausa no momento.');
+        }
+
         $atendentesEmPausa = DB::table('users')
         ->select()
         ->where('esta_em_pausa', true)
@@ -54,7 +64,7 @@ class PausaController extends Controller
         }
         else
         {
-            return redirect('/home')->with('notPausa', 'Limite de atendentes em pausa atingido.');
+            return redirect('/home')->with('warning', 'Limite de atendentes em pausa atingido.');
         }
     }
 

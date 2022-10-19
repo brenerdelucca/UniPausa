@@ -96,9 +96,9 @@
                 </div>
             </div>
         </div>
-        @if (session('notPausa'))
+        @if (session('warning'))
             <div class="alert alert-danger mt-3">
-                {{session('notPausa')}}
+                {{session('warning')}}
             </div>
         @endif
     </div>
