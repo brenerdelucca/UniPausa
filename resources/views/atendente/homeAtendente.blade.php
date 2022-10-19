@@ -14,9 +14,9 @@
 </head>
 <body>
     <!-- Menu -->
-    <?php
+    @php
         include 'componentes/menu.php';   
-    ?>
+    @endphp
 
     <!-- Conteúdo -->
     <div class="container-fluid">

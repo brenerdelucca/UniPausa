@@ -15,14 +15,9 @@
     </head>
 <body>
     <!-- Menu -->
-    <nav class="navbar navbar-expand-lg navbar-light menu">
-      <div class="container-fluid">
-        <div class="col text-end menu">
-          Fulano da Silva Santos
-          <i class="bi bi-person-circle"></i>
-        </div>
-      </div>
-    </nav>
+    @php
+        include 'componentes/menu.php';   
+    @endphp
 
     <!-- Conteúdo -->
     <div class="container mt-5">

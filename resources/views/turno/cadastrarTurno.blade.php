@@ -15,17 +15,9 @@
 </head>
 <body>
     <!-- Menu -->
-    <nav class="navbar navbar-expand-lg navbar-light menu">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col"><h5>Cadastro de turno</h5></div>
-        </div>
-        <div class="col text-end menu">
-          Fulano da Silva Santos
-          <i class="bi bi-person-circle"></i>
-        </div>
-      </div>
-    </nav>
+    @php
+        include 'componentes/menu.php';   
+    @endphp
     
     <!-- Conteúdo -->
     <div class="container card mt-4 p-3">
