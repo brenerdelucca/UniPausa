@@ -80,8 +80,18 @@ class RegistroController extends Controller
         }
         $writer = new Xlsx($spreadsheet);
         $filename = 'relatorioGeral' . time(). '.xlsx';
-        $writer->save(storage_path('../public/relatorios/'.$filename));
+        $filepath = '/app/public/relatorios/'.$filename;
+        $writer->save(storage_path($filepath));
 
-        return redirect('/telaRelatorios');
+        //Código que baixa o relatório
+        $headers =[
+            'Content-disposition' => 'attachment; filename='.basename($filepath),
+            'Content-type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'Content-Length' => filesize(storage_path($filepath)),
+            'Content-Transfer-Encoding' => 'binary',
+            'Cache-Control' => 'no-cache, must-revalidate',
+        ];
+
+        return response()->download(storage_path($filepath), basename($filepath), $headers);
     }
 }
