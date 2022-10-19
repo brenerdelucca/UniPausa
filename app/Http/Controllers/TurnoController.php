@@ -12,8 +12,22 @@ class TurnoController extends Controller
 {
     public function inserirTurno(Request $request)
     {
-        Turno::create($request->all());
-        return redirect('/homeTurno');
+        if($request->hr_inicio < $request->hr_fim 
+        && $request->hr_inicio_almoco < $request->hr_fim_almoco 
+        && $request->hr_inicio_almoco > $request->hr_inicio 
+        && $request->hr_inicio_almoco < $request->hr_fim
+        && $request->hr_fim_almoco > $request->hr_inicio
+        && $request->hr_fim_almoco < $request->hr_fim
+        && $request->limite_hr_pausa_manha > $request->hr_inicio
+        && $request->limite_hr_pausa_manha < $request->hr_inicio_almoco
+        && $request->limite_hr_pausa_tarde > $request->hr_fim_almoco
+        && $request->limite_hr_pausa_tarde < $request->hr_fim)
+        {
+            Turno::create($request->all());
+            return redirect('/homeTurno');   
+        }
+
+        return redirect()->back()->with('erroHora', 'Inconsistência nos horários.');
     }
 
     public function telaTurnos()
@@ -30,9 +44,23 @@ class TurnoController extends Controller
 
     public function alterarTurno(Request $request, $id)
     {
-        $turno = Turno::find($id);
-        $turno->update($request->all());
-        return redirect('/homeTurno');
+        if($request->hr_inicio < $request->hr_fim 
+        && $request->hr_inicio_almoco < $request->hr_fim_almoco 
+        && $request->hr_inicio_almoco > $request->hr_inicio 
+        && $request->hr_inicio_almoco < $request->hr_fim
+        && $request->hr_fim_almoco > $request->hr_inicio
+        && $request->hr_fim_almoco < $request->hr_fim
+        && $request->limite_hr_pausa_manha > $request->hr_inicio
+        && $request->limite_hr_pausa_manha < $request->hr_inicio_almoco
+        && $request->limite_hr_pausa_tarde > $request->hr_fim_almoco
+        && $request->limite_hr_pausa_tarde < $request->hr_fim)
+        {
+            $turno = Turno::find($id);
+            $turno->update($request->all());
+            return redirect('/homeTurno');   
+        }
+
+        return redirect()->action([TurnoController::class, 'acharTurno'], ['id' => $id])->with('erroHora', 'Inconsistência nos horários.');
     }
 
     public function consultarTurno($id)

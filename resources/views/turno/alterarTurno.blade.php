@@ -28,7 +28,7 @@
     </nav>
     
     <!-- Conteúdo -->
-    <div class="container card mt-5 p-4">
+    <div class="container card mt-4 p-3">
       <form action="/alterarTurno/{{$turno->id}}" method="POST">
         @csrf
         <div class="row justify-content-evenly">
@@ -106,6 +106,11 @@
           </div>
         </div>
       </form>
+      @if (session('erroHora'))
+        <div class="alert alert-danger mt-2">
+          {{session('erroHora')}}
+        </div>
+      @endif
     </div>
     
     <!-- Rodapé -->
