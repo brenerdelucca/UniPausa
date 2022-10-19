@@ -46,15 +46,6 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                         <form id="login-form" class="form" action="/auth" method="post">
                             @csrf
                             <div class="text-center">
@@ -78,8 +69,17 @@
                             </div>
                         </form>
                         @if (session('danger'))
-                            <div class="alert alert-danger">
+                            <div class="alert alert-danger mt-2">
                                 {{session('danger')}}
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger mt-2">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li style="list-style:none;">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
                         @endif
                     </div>

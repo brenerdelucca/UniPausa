@@ -25,6 +25,16 @@ class AtendenteController extends Controller
             'password.required' => 'Senha é obrigatória.',
         ]);
 
+        $user = DB::table('users')
+        ->select()
+        ->where('email', $request->email)
+        ->get();
+
+        if(count($user)>0 && Hash::check($request->password, $user[0]->password) && !$user[0]->ativo)
+        {
+            return redirect()->back()->with('danger', 'Usuário inativo.');   
+        }
+
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password]))
         {
             $request->session()->regenerate();
