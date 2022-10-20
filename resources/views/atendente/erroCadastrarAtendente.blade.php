@@ -57,9 +57,9 @@
                 <div class="d-flex flex-column">
                     <label class="form-label">Celular</label>
                     @if (is_null($dadosCadastro->numero_celular))
-                      <input type="text" class="form-control" placeholder="912345678" name="numero_celular" pattern="[0-9]{9}">
+                      <input type="text" class="form-control" placeholder="912345678" name="numero_celular" pattern="[9]{1}[0-9]{8}">
                     @else
-                      <input type="text" class="form-control" placeholder="912345678" name="numero_celular" value="{{$dadosCadastro->numero_celular}}" pattern="[0-9]{9}">
+                      <input type="text" class="form-control" placeholder="912345678" name="numero_celular" value="{{$dadosCadastro->numero_celular}}" pattern="[9]{1}[0-9]{8}">
                     @endif
                 </div>
             </div>

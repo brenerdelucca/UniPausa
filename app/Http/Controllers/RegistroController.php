@@ -106,7 +106,7 @@ class RegistroController extends Controller
         }
 
         $writer = new Xlsx($spreadsheet);
-        $filename = 'relatorioGeral' . time(). '.xlsx';
+        $filename = (isset($id) ? 'relatorioIndividual' : 'relatorioGeral') . time(). '.xlsx';
         $filepath = '/app/public/relatorios/'.$filename;
         $writer->save(storage_path($filepath));
 

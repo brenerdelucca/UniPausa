@@ -50,7 +50,7 @@
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Celular</label>
-                    <input type="text" class="form-control" placeholder="912345678" name="numero_celular" pattern="[0-9]{9}">
+                    <input type="text" class="form-control" placeholder="912345678" name="numero_celular" pattern="[9]{1}[0-9]{8}">
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">

@@ -58,12 +58,12 @@
               @if (isset($atendente->numero_celular))
                 <div class="d-flex flex-column">
                   <label class="form-label">Celular</label>
-                  <input type="text" class="form-control" name="numero_celular" value="{{$atendente->numero_celular}}" pattern="[0-9]{9}">
+                  <input type="text" class="form-control" name="numero_celular" value="{{$atendente->numero_celular}}" pattern="[9]{1}[0-9]{8}">
                 </div>
               @else
                 <div class="d-flex flex-column">
                   <label class="form-label">Celular</label>
-                  <input type="text" class="form-control" name="numero_celular" pattern="[0-9]{9}">
+                  <input type="text" class="form-control" name="numero_celular" pattern="[9]{1}[0-9]{8}">
                 </div>
               @endif
             </div>

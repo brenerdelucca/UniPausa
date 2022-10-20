@@ -139,7 +139,7 @@ class AtendenteController extends Controller
     {
         $atendente = DB::table('users')
         ->join('turnos', 'users.turno_id', "=", 'turnos.id')
-        ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ativo', 'users.turno_id', 'turnos.nome_turno')
+        ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ativo', 'users.turno_id', 'users.ddd', 'users.numero_celular', 'turnos.nome_turno')
         ->where('users.id', $id)
         ->get();
         $atendente = $atendente[0];
