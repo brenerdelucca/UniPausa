@@ -17,14 +17,25 @@ class RegistroController extends Controller
         return view('/relatorios/relatorioGeral');
     }
 
-    public function relatorioPausa(Request $request)
+    public function relatorioPausa(Request $request, $id = null)
     {
-        $registros = DB::table('registros')
-        ->join('users', 'users.id', '=', 'registros.user_id')
-        ->select('users.nome_atendente', 'users.sobrenome_atendente', 'registros.dt_pausa', 'registros.hr_inicio_pausa', 'registros.hr_fim_pausa', 'registros.tempo_estimado_pausa')
-        ->where('hr_fim_pausa', '<>', null)
-        ->whereBetween('dt_pausa', [$request->data_inicial, $request->data_final])
-        ->get();
+        if(isset($id)){
+            $registros = DB::table('registros')
+            ->join('users', 'users.id', '=', 'registros.user_id')
+            ->select('users.nome_atendente', 'users.sobrenome_atendente', 'registros.dt_pausa', 'registros.hr_inicio_pausa', 'registros.hr_fim_pausa', 'registros.tempo_estimado_pausa')
+            ->where('hr_fim_pausa', '<>', null)
+            ->where('user_id', $id)
+            ->get();
+        }
+        else
+        {
+            $registros = DB::table('registros')
+            ->join('users', 'users.id', '=', 'registros.user_id')
+            ->select('users.nome_atendente', 'users.sobrenome_atendente', 'registros.dt_pausa', 'registros.hr_inicio_pausa', 'registros.hr_fim_pausa', 'registros.tempo_estimado_pausa')
+            ->where('hr_fim_pausa', '<>', null)
+            ->whereBetween('dt_pausa', [$request->data_inicial, $request->data_final])
+            ->get();
+        }
         
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -36,6 +47,7 @@ class RegistroController extends Controller
         $sheet->setCellValue('E1', 'Tempo estimado');
         $sheet->setCellValue('F1', 'Atraso(min)');
         $linha = 2;
+        $atrasoTotal = 0;
         foreach($registros as $registro)
         {
             $sheet->setCellValueByColumnAndRow(1, $linha, $registro->nome_atendente. ' '. $registro->sobrenome_atendente);
@@ -72,12 +84,27 @@ class RegistroController extends Controller
 
             $tempoEstimado = intval(substr($registro->tempo_estimado_pausa, 3, 2));
 
+            $atrasoTotal += $tempoEmPausa->i > $tempoEstimado ? $tempoEmPausa->i - $tempoEstimado : 0;
+
             if($tempoEmPausa->h = 0){
                 $sheet->setCellValueByColumnAndRow(6, $linha, $tempoEmPausa->i > $tempoEstimado ? $tempoEmPausa->i - $tempoEstimado : 0);
             }
 
             $linha++;
         }
+
+        if(isset($id))
+        {
+            $sheet->setCellValueByColumnAndRow(1, $linha, "Atraso acumulado em minutos: ".$atrasoTotal);
+            $sheet->mergeCells('A'.$linha.':F'.$linha);
+            $styleArray = [
+                'font' => [
+                    'bold' => true
+                ]
+            ];
+            $sheet->getStyle('A'.$linha.':F'.$linha)->applyFromArray($styleArray);
+        }
+
         $writer = new Xlsx($spreadsheet);
         $filename = 'relatorioGeral' . time(). '.xlsx';
         $filepath = '/app/public/relatorios/'.$filename;

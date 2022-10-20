@@ -75,9 +75,11 @@ Route::middleware(['supervisor'])->group(function(){
 
     Route::post('/trocarTurno', [TurnoController::class, 'trocarTurno']);
 
+    #Relatórios
+
     Route::get('/telaRelatorios', [RegistroController::class, 'telaRelatorios']);
 
-    Route::post('/relatorioPausa', [RegistroController::class, 'relatorioPausa']);
+    Route::get('/relatorioPausa/{id?}', [RegistroController::class, 'relatorioPausa']);
 });
 
 Route::middleware(['adm'])->group(function(){

@@ -67,6 +67,7 @@
                                 <a href="/alterarAtendente/{{$atendente->id}}"><i class="bi bi-pencil-fill link-dark"></i></a>
                                 <a href="/consultarAtendente/{{$atendente->id}}"><i class="bi bi-search link-dark"></i></a>
                                 <!--<a href=""><i class="bi bi-trash-fill link-dark"></i></a>-->
+                                <a href="/relatorioPausa/{{$atendente->id}}"><i class="bi bi-file-spreadsheet-fill link-dark"></i></a>
                             </td>
                         </tr>
                     @endforeach

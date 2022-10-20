@@ -20,8 +20,7 @@
 
     <!-- Conteúdo -->
     <div class="container card mt-2 p-2">
-        <form action="/relatorioPausa" method="post">
-            @csrf
+        <form action="/relatorioPausa" method="get">
             <div class="d-flex flex-row justify-content-evenly">
                 <h4>Relatório geral</h4>
             </div>
