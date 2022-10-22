@@ -46,6 +46,13 @@
                 </div>
             </div>
         </form>
+        @if (session('success'))
+        <div class="container">
+            <div class="row justify-content-center alert alert-success mt-2">
+                {{session('success')}}
+            </div>
+        </div>
+        @endif
     </div>
     
     <!-- Rodapé -->

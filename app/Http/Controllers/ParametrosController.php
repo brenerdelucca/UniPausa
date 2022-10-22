@@ -16,6 +16,6 @@ class ParametrosController extends Controller
     public function alterarParametros(Request $request){
         $parametros = Parametro::find(1);
         $parametros->update($request->all());
-        return view('/parametros/parametros', ['parametros' => $parametros]);
+        return redirect()->back()->with('success', 'Parâmetros alterados com sucesso!');
     }
 }

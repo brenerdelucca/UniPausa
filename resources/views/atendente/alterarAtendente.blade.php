@@ -26,11 +26,11 @@
             <div class="d-flex flex-row justify-content-evenly">
                 <div class="d-flex flex-column">
                     <label class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome_atendente" value="{{$atendente->nome_atendente}}" pattern="[A-Za-z]{1,60}[0-9]{0,10}[\w\s]{0,}" required>
+                    <input type="text" class="form-control" name="nome_atendente" value="{{$atendente->nome_atendente}}" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]{1,60}[0-9]{0,10}[\w\s]{0,}" required>
                 </div>
                 <div class="d-flex flex-column">
                     <label class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control" name="sobrenome_atendente" value="{{$atendente->sobrenome_atendente}}" pattern="[A-Za-z]{1,60}[0-9]{0,10}[\w\s]{0,}" required>
+                    <input type="text" class="form-control" name="sobrenome_atendente" value="{{$atendente->sobrenome_atendente}}" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]{1,60}[0-9]{0,10}[\w\s]{0,}" required>
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-evenly mt-5">

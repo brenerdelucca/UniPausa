@@ -26,6 +26,11 @@ class PausaController extends Controller
 
     public function entrarEmPausa()
     {
+        $parametrosPausa = DB::table('parametros')
+        ->select()
+        ->where('id', 1)
+        ->get();
+
         //Verifica se o horário permite tirar pausa
         $horaAtual = date('H:i');
         $turnoAtendente = Turno::find(auth()->user()->turno_id);
@@ -36,16 +41,23 @@ class PausaController extends Controller
             return redirect()->back()->with('warning', 'Não é permitido entrar em pausa no momento.');
         }
 
+        //verificar quantas pausas tirou no dia
+
+        $pausasDoDia = DB::table('registros')
+        ->select()
+        ->where('user_id', auth()->user()->id)
+        ->where('dt_pausa', date('Y/m/d'))
+        ->get();
+
+        if(count($pausasDoDia) >= $parametrosPausa[0]->pausas_por_dia_por_pessoa)
+        {
+            return redirect()->back()->with('warning', 'Limite de pausas diária atingido.');
+        }
+
         $atendentesEmPausa = DB::table('users')
         ->select()
         ->where('esta_em_pausa', true)
         ->get();
-        
-        $parametrosPausa = DB::table('parametros')
-        ->select()
-        ->where('id', 1)
-        ->get();
-
 
         if(count($atendentesEmPausa) < $parametrosPausa[0]->qntd_pessoas_pausa)
         {
