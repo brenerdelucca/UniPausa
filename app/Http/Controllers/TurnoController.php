@@ -71,6 +71,13 @@ class TurnoController extends Controller
 
     public function deletarTurno(Request $request)
     {
+        $turnosCadastrados = Turno::all();
+
+        if(count($turnosCadastrados) == 1)
+        {
+            return redirect('/homeTurno')->with('warning', 'Não é possível excluir este turno pois ele é o único cadastrado.');
+        }
+
         try{
             $turno = Turno::find($request->id);
             $turno->delete();

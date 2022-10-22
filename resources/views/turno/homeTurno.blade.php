@@ -99,8 +99,16 @@
                 </div>
               </form>
             </div>
+          </div>
+          @if (session('warning'))
+          <div class="container"></div>
+            <div class="container">
+              <div class="row alert alert-danger mt-3 justify-content-center">
+                  {{session('warning')}}
+              </div>
+            </div>
+          @endif
         </div>
-    </div>
     
     <!-- Rodapé -->
     <?php
