@@ -14,12 +14,30 @@
 </head>
 <body>
     <!-- Menu -->
-    <?php
-        include 'componentes/menu.php';   
-    ?>
+    <link href="/componentes/css/menu.css" rel="stylesheet" type="text/css">
+    <nav class="navbar navbar-expand-lg navbar-light menu">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                  <h4>Parâmetros</h4>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="buttonUser">
+                    <?php echo auth()->user()->nome_atendente . ' ' . auth()->user()->sobrenome_atendente; ?>
+                    <i class="bi bi-person-circle"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end user-navigation">
+                    <li><a class="dropdown-item" href="/telaAlterarSenha">Alterar senha</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/logout">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
     <!-- Conteúdo -->
-    <div class="container-fluid mt-5 p-4">
+    <div class="container card mt-4 p-4">
         <form action="/alterarParametros" method="POST">
             @csrf
             <div class="row justify-content-evenly">
@@ -40,7 +58,8 @@
                   <input type="text" class="form-control" name="pausas_por_dia_por_pessoa" value="{{$parametros->pausas_por_dia_por_pessoa}}" pattern="[0-9]{0,10}">
                 </div>
             </div>
-            <div class="d-flex flex-row justify-content-evenly mt-5">
+            <div class="d-flex flex-row justify-content-evenly mt-4">
+                <a class="btn btn-danger" href="/home">Cancelar</a>
                 <div class="d-flex flex-column">
                     <input type="submit" class="btn btn-success" value="Alterar">
                 </div>

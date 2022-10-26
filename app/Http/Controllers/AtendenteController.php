@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Turno;
 use App\Models\User;
+use App\Models\Registro;
 use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -77,12 +78,25 @@ class AtendenteController extends Controller
 
     public function telaAtendentes()
     {
-        $atendentes = DB::table('users')
-        ->join('turnos', 'users.turno_id', "=", 'turnos.id')
-        ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ddd', 'users.numero_celular', 'users.ativo', 'users.is_adm', 'turnos.nome_turno')
-        ->where('is_adm', '=', false)
-        ->orderBy('id')
-        ->get();
+        if(auth()->user()->is_supervisor)
+        {
+            $atendentes = DB::table('users')
+            ->join('turnos', 'users.turno_id', "=", 'turnos.id')
+            ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ddd', 'users.numero_celular', 'users.ativo', 'users.is_adm', 'turnos.nome_turno')
+            ->where('is_adm', '=', false)
+            ->where('is_supervisor', false)
+            ->orderBy('id')
+            ->get();
+        }
+        else
+        {
+            $atendentes = DB::table('users')
+            ->join('turnos', 'users.turno_id', "=", 'turnos.id')
+            ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ddd', 'users.numero_celular', 'users.ativo', 'users.is_adm', 'turnos.nome_turno')
+            ->where('is_adm', '=', false)
+            ->orderBy('id')
+            ->get();
+        }
 
         return view('/atendente/homeAtendente', ['atendentes' => $atendentes]);
     }
@@ -150,6 +164,11 @@ class AtendenteController extends Controller
 
     public function deletarAtendente(Request $request)
     {
+        $registros = Registro::all()->where('user_id', $request->id);
+        if(count($registros) > 0)
+        {
+            return redirect()->back()->with('warning', 'Não é possível deletar este atendente pois ele já possui registros de pausa.');
+        }
         $atendente = User::find($request->id);
         $atendente->delete();
         return redirect('/homeAtendente');

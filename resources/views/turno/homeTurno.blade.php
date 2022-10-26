@@ -75,7 +75,7 @@
             <div class="d-flex flex-column">
               <a class="btn btn-success" href="/cadastrarTurno">Cadastrar turno</a>
             </div>
-            @if (count($turnos) > 0)
+            @if (count($turnos) > 1 || count($atendentes) == 0)
               <div class="d-flex flex-column me-1">
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   Excluir Turno

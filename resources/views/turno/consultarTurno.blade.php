@@ -15,13 +15,30 @@
 </head>
 <body>
     <!-- Menu -->
-    @php
-        include 'componentes/menu.php';   
-    @endphp
+    <link href="/componentes/css/menu.css" rel="stylesheet" type="text/css">
+    <nav class="navbar navbar-expand-lg navbar-light menu">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                  <h4>Consulta de turno</h4>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="buttonUser">
+                    <?php echo auth()->user()->nome_atendente . ' ' . auth()->user()->sobrenome_atendente; ?>
+                    <i class="bi bi-person-circle"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end user-navigation">
+                    <li><a class="dropdown-item" href="/telaAlterarSenha">Alterar senha</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/logout">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
     <!-- Conteúdo -->
     <div class="container card mt-4 p-4">
-      <h3>Consulta de turno</h3>
         <div class="row justify-content-evenly">
           <div class="col-3">
             <label class="form-label">Nome</label>

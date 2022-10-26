@@ -23,6 +23,11 @@
         <div class="d-flex flex-row">
             <h3>Atendentes</h3>
         </div>
+        @if (session('warning'))
+            <div class="alert alert-danger mt-3">
+                {{session('warning')}}
+            </div>
+        @endif
         @if (count($atendentes) > 0)
             <div class="d-flex flex-row overflow-auto" style="max-height: 65vh;">
                 <table class="table table-striped table-hover table-bordered">

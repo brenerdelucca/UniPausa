@@ -33,7 +33,8 @@ class TurnoController extends Controller
     public function telaTurnos()
     {
         $turnos = Turno::all()->where('id', '<>', 1);
-        return view('/turno/homeTurno', ['turnos' => $turnos]);
+        $atendentes = User::all()->where('is_adm', false);
+        return view('/turno/homeTurno', ['turnos' => $turnos, 'atendentes' => $atendentes]);
     }
 
     public function acharTurno($id)
@@ -71,7 +72,9 @@ class TurnoController extends Controller
 
     public function deletarTurno(Request $request)
     {
-        //$turnosCadastrados = Turno::all();
+        // $turnosCadastrados = Turno::all()->where('id', '<>', 1);
+
+        // $atendentesCadastrados = User::all()->where('is_adm', false);
 
         // if(count($turnosCadastrados) == 1)
         // {
@@ -84,7 +87,7 @@ class TurnoController extends Controller
             return redirect('/homeTurno');
         } catch (QueryException $exception){
             $turnoAntigo = Turno::find($request->id);
-            $turnos = Turno::all();
+            $turnos = Turno::all()->where('id', '<>', 1);
             return view('/turno/erroDeleteTurno', ['turnos' => $turnos, 'turnoAntigo' => $turnoAntigo]);
         }
     }
