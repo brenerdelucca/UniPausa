@@ -57,7 +57,7 @@ class AtendenteController extends Controller
 
     public function cadastrarAtendente()
     {
-        $turnos = Turno::all();
+        $turnos = Turno::all()->where('id', '<>', 1);
         return view('/atendente/cadastrarAtendente', ['turnos' => $turnos]);
     }
 
@@ -77,24 +77,12 @@ class AtendenteController extends Controller
 
     public function telaAtendentes()
     {
-
-        if(auth()->user()->is_adm)
-        {
-            $atendentes = DB::table('users')
-            ->join('turnos', 'users.turno_id', "=", 'turnos.id')
-            ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ddd', 'users.numero_celular', 'users.ativo', 'users.is_adm', 'turnos.nome_turno')
-            ->orderBy('id')
-            ->get();
-        }
-        else
-        {
-            $atendentes = DB::table('users')
-            ->join('turnos', 'users.turno_id', "=", 'turnos.id')
-            ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ddd', 'users.numero_celular', 'users.ativo', 'users.is_adm', 'turnos.nome_turno')
-            ->where('is_adm', '=', false)
-            ->orderBy('id')
-            ->get();
-        }
+        $atendentes = DB::table('users')
+        ->join('turnos', 'users.turno_id', "=", 'turnos.id')
+        ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ddd', 'users.numero_celular', 'users.ativo', 'users.is_adm', 'turnos.nome_turno')
+        ->where('is_adm', '=', false)
+        ->orderBy('id')
+        ->get();
 
         return view('/atendente/homeAtendente', ['atendentes' => $atendentes]);
     }

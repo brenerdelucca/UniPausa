@@ -102,9 +102,7 @@
                                 <label class="form-label">Selecione o atendente a ser excluído:</label>
                                 <select name="id" class="form-select">
                                     @foreach ($atendentes as $atendente)
-                                        @if (!$atendente->is_adm)
-                                            <option value="{{$atendente->id}}">{{$atendente->nome_atendente}} {{$atendente->sobrenome_atendente}}</option>
-                                        @endif
+                                        <option value="{{$atendente->id}}">{{$atendente->nome_atendente}} {{$atendente->sobrenome_atendente}}</option>
                                     @endforeach
                                 </select>
                                 </div>

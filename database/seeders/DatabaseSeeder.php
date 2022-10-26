@@ -17,6 +17,17 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\Turno::factory()->create([
+            'nome_turno' => 'Turno exclusivo do gerente (não mexer)',
+            'hr_inicio' => '00:00:00',
+            'hr_fim' => '23:59:59',
+            'hr_inicio_almoco' => '12:35:00',
+            'hr_fim_almoco' => '12:36:00',
+            'limite_hr_pausa_manha' => '12:34:00',
+            'limite_hr_pausa_tarde' => '23:58:00',
+            'ativo' => true,
+        ]);
+
+        \App\Models\Turno::factory()->create([
             'nome_turno' => 'Turno das 8',
             'hr_inicio' => '08:00:00',
             'hr_fim' => '18:00:00',
@@ -32,6 +43,7 @@ class DatabaseSeeder extends Seeder
              'email' => 'gerente@example.com',
              'is_supervisor' => false,
              'is_adm' => true,
+             'turno_id' => 1,
          ]);
 
          \App\Models\User::factory()->create([
@@ -39,6 +51,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'supervisor@example.com',
             'is_supervisor' => true,
             'is_adm' => false,
+            'turno_id' => 2,
         ]);
 
         \App\Models\User::factory()->create([
@@ -46,6 +59,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'ate@example.com',
             'is_supervisor' => false,
             'is_adm' => false,
+            'turno_id' => 2,
         ]);
 
         \App\Models\Parametro::factory()->create([

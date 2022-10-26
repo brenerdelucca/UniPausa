@@ -32,7 +32,7 @@ class TurnoController extends Controller
 
     public function telaTurnos()
     {
-        $turnos = Turno::all();
+        $turnos = Turno::all()->where('id', '<>', 1);
         return view('/turno/homeTurno', ['turnos' => $turnos]);
     }
 
@@ -71,12 +71,12 @@ class TurnoController extends Controller
 
     public function deletarTurno(Request $request)
     {
-        $turnosCadastrados = Turno::all();
+        //$turnosCadastrados = Turno::all();
 
-        if(count($turnosCadastrados) == 1)
-        {
-            return redirect('/homeTurno')->with('warning', 'Não é possível excluir este turno pois ele é o único cadastrado.');
-        }
+        // if(count($turnosCadastrados) == 1)
+        // {
+        //     return redirect('/homeTurno')->with('warning', 'Não é possível excluir este turno pois ele é o único cadastrado.');
+        // }
 
         try{
             $turno = Turno::find($request->id);
