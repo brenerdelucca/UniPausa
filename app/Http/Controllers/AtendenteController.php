@@ -77,12 +77,25 @@ class AtendenteController extends Controller
 
     public function telaAtendentes()
     {
-        $atendentes = DB::table('users')
-        ->join('turnos', 'users.turno_id', "=", 'turnos.id')
-        ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ddd', 'users.numero_celular', 'users.ativo', 'turnos.nome_turno')
-        ->where('is_adm', '=', false)
-        ->orderBy('id')
-        ->get();
+
+        if(auth()->user()->is_adm)
+        {
+            $atendentes = DB::table('users')
+            ->join('turnos', 'users.turno_id', "=", 'turnos.id')
+            ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ddd', 'users.numero_celular', 'users.ativo', 'users.is_adm', 'turnos.nome_turno')
+            ->orderBy('id')
+            ->get();
+        }
+        else
+        {
+            $atendentes = DB::table('users')
+            ->join('turnos', 'users.turno_id', "=", 'turnos.id')
+            ->select('users.id', 'users.nome_atendente', 'users.sobrenome_atendente', 'users.email', 'users.is_supervisor', 'users.ddd', 'users.numero_celular', 'users.ativo', 'users.is_adm', 'turnos.nome_turno')
+            ->where('is_adm', '=', false)
+            ->orderBy('id')
+            ->get();
+        }
+
         return view('/atendente/homeAtendente', ['atendentes' => $atendentes]);
     }
 

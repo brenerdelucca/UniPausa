@@ -37,6 +37,11 @@
             <div class="d-flex flex-row justify-content-evenly mt-4">
                 <input type="submit" class="btn btn-success" value="Extrair">
             </div>
+            @if (session('warning'))
+                <div class="d-flex flex-row justify-content-evenly alert alert-danger mt-3">
+                    {{session('warning')}}
+                </div>
+            @endif
         </form>
     </div>
 
