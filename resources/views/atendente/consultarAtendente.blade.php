@@ -21,6 +21,7 @@
     
     <!-- Conteúdo -->
     <div class="container card mt-2 p-2">
+      <h3>Consulta de atendente</h3>
             <div class="d-flex flex-row justify-content-evenly">
                 <div class="d-flex flex-column">
                     <label class="form-label">Nome</label>

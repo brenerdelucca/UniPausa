@@ -23,6 +23,7 @@
 
     <!-- Conteúdo -->
     <div class="container card mt-2 p-2">
+      <h3>Cadastrar atendente</h3>
         <form action="/inserirAtendente" method="POST">
             @csrf
             <div class="d-flex flex-row justify-content-evenly">

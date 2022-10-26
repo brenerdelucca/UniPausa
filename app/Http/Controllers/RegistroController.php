@@ -19,7 +19,6 @@ class RegistroController extends Controller
 
     public function relatorioPausa(Request $request, $id = null)
     {
-
         $tsInicial = DateTime::createFromFormat('Y-m-d', $request->data_inicial)->getTimestamp();
         $tsFinal = DateTime::createFromFormat('Y-m-d', $request->data_final)->getTimestamp();
 

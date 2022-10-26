@@ -41,7 +41,7 @@ class AtendenteController extends Controller
             return redirect('home');
         }
 
-        return redirect()->back()->with('danger', 'E-mail ou senha inválida.');
+        return redirect()->back()->with('danger', 'E-mail e/ou senha inválidos.');
     }
 
     public function logout(Request $request)

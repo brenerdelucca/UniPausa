@@ -21,6 +21,7 @@
     
     <!-- Conteúdo -->
     <div class="container card mt-2 p-2">
+      <h3>Alteração de atendente</h3>
         <form action="/alterarAtendente/{{$atendente->id}}" method="POST">
             @csrf
             <div class="d-flex flex-row justify-content-evenly">

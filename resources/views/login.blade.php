@@ -60,10 +60,10 @@
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="row" style="margin-top: 5%;">
-                                <div class="col-6" >
+                                {{-- <div class="col-6" >
                                     <a href="#" id="register-link" class="text-login">Esqueceu a senha?</a>
-                                </div>
-                                <div class="col-6 text-end">
+                                </div> --}}
+                                <div class="col-12 text-end">
                                     <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar" style="background-color: #004a84; color: #ffffff;">
                                 </div>
                             </div>
