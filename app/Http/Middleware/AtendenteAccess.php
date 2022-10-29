@@ -20,6 +20,10 @@ class AtendenteAccess
         {
             return $next($request);
         }
+        elseif(auth()->check())
+        {
+            return redirect()->back();
+        }
 
         return redirect('/');
     }

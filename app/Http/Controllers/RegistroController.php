@@ -19,12 +19,14 @@ class RegistroController extends Controller
 
     public function relatorioPausa(Request $request, $id = null)
     {
-        $tsInicial = DateTime::createFromFormat('Y-m-d', $request->data_inicial)->getTimestamp();
-        $tsFinal = DateTime::createFromFormat('Y-m-d', $request->data_final)->getTimestamp();
-
-        if($tsInicial > $tsFinal)
+        if(is_null($id))
         {
-            return redirect()->back()->with('warning', 'Datas inválidas.');
+            $tsInicial = DateTime::createFromFormat('Y-m-d', $request->data_inicial)->getTimestamp();
+            $tsFinal = DateTime::createFromFormat('Y-m-d', $request->data_final)->getTimestamp();
+            if($tsInicial > $tsFinal)
+            {
+                return redirect()->back()->with('warning', 'Datas inválidas.');
+            }
         }
 
         if(isset($id)){
