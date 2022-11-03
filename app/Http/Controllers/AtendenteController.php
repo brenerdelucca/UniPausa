@@ -71,7 +71,7 @@ class AtendenteController extends Controller
             User::create($request->all());
             return redirect('/homeAtendente');
         } catch(QueryException $exception){
-            $turnos = Turno::all();
+            $turnos = Turno::all()->where('id', '<>', 1);
             return view('/atendente/erroCadastrarAtendente', ['dadosCadastro' => $request, 'turnos' => $turnos, 'dadosAlteracao' => $request]);
         }
     }
@@ -109,7 +109,7 @@ class AtendenteController extends Controller
         ->where('users.id', $id)
         ->get();
         $atendente = $atendente[0];
-        $turnos = Turno::all();
+        $turnos = Turno::all()->where('id', '<>', 1);
         return view('/atendente/alterarAtendente', ['atendente' => $atendente, 'turnos' => $turnos]);
     }
 
@@ -125,7 +125,7 @@ class AtendenteController extends Controller
                 $atendente->update($request->all());
                 return redirect('/homeAtendente');
             } catch(QueryException $exception){
-                $turnos = Turno::all();
+                $turnos = Turno::all()->where('id', '<>', 1);
                 return view('/atendente/erroAlterarAtendente', ['dadosAlteracao' => $request, 'turnos' => $turnos, 'id' => $id, 'antigo' => $atendente]);
             }
         }
@@ -144,7 +144,7 @@ class AtendenteController extends Controller
                 ]); 
                 return redirect('/homeAtendente');
             } catch(QueryException $exception){
-                $turnos = Turno::all();
+                $turnos = Turno::all()->where('id', '<>', 1);
                 return view('/atendente/erroAlterarAtendente', ['dadosAlteracao' => $request, 'turnos' => $turnos, 'id' => $id, 'antigo' => $atendente]);
             }
         }
@@ -158,7 +158,7 @@ class AtendenteController extends Controller
         ->where('users.id', $id)
         ->get();
         $atendente = $atendente[0];
-        $turnos = Turno::all();
+        $turnos = Turno::all()->where('id', '<>', 1);
         return view('/atendente/consultarAtendente', ['atendente' => $atendente, 'turnos' => $turnos]);
     }
 
