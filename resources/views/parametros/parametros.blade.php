@@ -49,7 +49,7 @@
             <div class="row justify-content-evenly mt-5">
               <div class="col-5">
                 <label class="form-label">Tempo de pausa</label>
-                <input type="time" class="form-control" name="temposa_pausa" value="{{$parametros->tempo_pausa}}" required>
+                <input type="time" class="form-control" name="tempo_pausa" value="{{$parametros->tempo_pausa}}" required>
               </div>
             </div>
             <div class="row justify-content-evenly mt-5">
