@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Registro;
 use DateTime;
+use DateInterval;
 use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -57,7 +58,7 @@ class RegistroController extends Controller
         $sheet->setCellValue('E1', 'Tempo estimado');
         $sheet->setCellValue('F1', 'Atraso(min)');
         $linha = 2;
-        $atrasoTotal = 0;
+        $atrasoTotal = DateTime::createFromFormat('H:i', '00:00');
         foreach($registros as $registro)
         {
             $sheet->setCellValueByColumnAndRow(1, $linha, $registro->nome_atendente. ' '. $registro->sobrenome_atendente);
@@ -66,46 +67,28 @@ class RegistroController extends Controller
             $sheet->setCellValueByColumnAndRow(4, $linha, substr($registro->hr_fim_pausa, 0, 5));
             $sheet->setCellValueByColumnAndRow(5, $linha, substr($registro->tempo_estimado_pausa, 0, 5));
 
-            // $tempoEstimado = intval(substr($registro->tempo_estimado_pausa, 3, 2));
-
-            // $horaInicio = intval(substr($registro->hr_inicio_pausa, 0, 2));
-
-            // $minInicio = intval(substr($registro->hr_inicio_pausa, 3, 2));
-
-            // $horaFim = intval(substr($registro->hr_fim_pausa, 0, 2));
-
-            // $minFim = intval(substr($registro->hr_fim_pausa, 3, 2));
-
-            // $tempoEmPausa = $minFim-$minInicio;
-
-            // if($minInicio+$tempoEmPausa < 60)
-            // {
-            //     if($tempoEmPausa>$tempoEstimado)
-            //     {
-            //         $sheet->setCellValueByColumnAndRow(6, $linha, ($minFim-$minInicio)-$tempoEstimado);
-            //     }
-            // }
-
             $horaInicio = DateTime::createFromFormat('H:i', substr($registro->hr_inicio_pausa, 0, 5));
 
             $horaFim = DateTime::createFromFormat('H:i', substr($registro->hr_fim_pausa, 0, 5));
 
-            $tempoEmPausa = $horaInicio->diff($horaFim);
+            $tempoEmPausa = new DateInterval('PT'.date('i', $horaFim->getTimestamp() - $horaInicio->getTimestamp()).'M');
 
             $tempoEstimado = intval(substr($registro->tempo_estimado_pausa, 3, 2));
 
-            $atrasoTotal += $tempoEmPausa->i > $tempoEstimado ? $tempoEmPausa->i - $tempoEstimado : 0;
-
-            if($tempoEmPausa->h = 0){
-                $sheet->setCellValueByColumnAndRow(6, $linha, $tempoEmPausa->i > $tempoEstimado ? $tempoEmPausa->i - $tempoEstimado : 0);
+            if($tempoEmPausa->i > $tempoEstimado)
+            {
+                $atrasoTotal->add(new DateInterval('PT'.$tempoEmPausa->i - $tempoEstimado.'M'));
             }
+
+            $sheet->setCellValueByColumnAndRow(6, $linha, $tempoEmPausa->i > $tempoEstimado ? $tempoEmPausa->i - $tempoEstimado : 0);
+            
 
             $linha++;
         }
 
         if(isset($id))
         {
-            $sheet->setCellValueByColumnAndRow(1, $linha, "Atraso acumulado em minutos: ".$atrasoTotal);
+            $sheet->setCellValueByColumnAndRow(1, $linha, "Atraso acumulado em horas: ".$atrasoTotal->format('H:i'));
             $sheet->mergeCells('A'.$linha.':F'.$linha);
             $styleArray = [
                 'font' => [
